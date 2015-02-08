@@ -1,9 +1,9 @@
 [submodule "lib/common-loadout-format"]
 	path = lib/common-loadout-format
-	url = git://github.com/Artefact2/common-loadout-format.git
+	url = git@github.com:copyliu/common-loadout-format.git
 [submodule "lib/jsPlumb"]
 	path = lib/jsPlumb
-	url = git://github.com/sporritt/jsPlumb.git
+	url = git@github.com:sporritt/jsPlumb.git
 [submodule "lib/mousetrap"]
 	path = lib/mousetrap
-	url = git://github.com/ccampbell/mousetrap.git
+	url = git@github.com:ccampbell/mousetrap.git
