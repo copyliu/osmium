@@ -168,16 +168,18 @@ if(defined('FAIL')) {
 require __DIR__.'/../inc/root.php';
 
 check('for some data in the eve PostgreSQL schema', function() {
-	$q = @\Osmium\Db\query_params('SELECT typeid FROM eve.invtypes WHERE typeid = $1', array(2048));
+	$q = @\Osmium\Db\query_params('SELECT volume FROM eve.invtypes WHERE typeid = $1', array(2048));
 	if($q === false) return false;
 	$r = @\Osmium\Db\fetch_row($q);
 	if($r === false) return false;
-	return isset($r[0]) && $r[0] === '2048';
+	return isset($r[0]) && (int)$r[0] === 5;
 }, CHECK_REQUIRED);
 
 check('for osmium PostgreSQL schema', function() {
-	$q = @\Osmium\Db\query('SELECT 1 FROM osmium.accounts');
+	$q = @\Osmium\Db\query('SELECT COUNT(accountid) FROM osmium.accounts');
 	if($q === false) return false;
+	$r = \Osmium\Db\fetch_row($q);
+	if($r === false) return false;
 	return true;
 }, CHECK_REQUIRED);
 
@@ -194,7 +196,7 @@ check('for Sphinx', function() {
 }, CHECK_REQUIRED);
 
 check('for some data in the osmium_types Sphinx index', function() {
-	$q = @\Osmium\Search\query('SELECT id FROM osmium_types WHERE MATCH(\'A\')');
+	$q = @\Osmium\Search\query('SELECT id FROM osmium_types WHERE ml = 0');
 	if($q === false) return false;
 	$r = @\Osmium\Search\fetch_assoc($q);
 	if($r === false) return false;
