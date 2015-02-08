@@ -22,7 +22,7 @@ namespace Osmium\EveApi;
 
 /* Change this if you want to use an API proxy. BEWARE: whoever
  * controls the proxy will be able to impersonate any character. */
-const API_ROOT = 'https://api.eveonline.com';
+const API_ROOT = 'https://api.eve-online.com.cn';
 
 /* Set a default timeout of 5 seconds for API calls. Higher values can
  * mean longer login times if the API server is busy. */
