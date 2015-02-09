@@ -36,7 +36,7 @@ class Page extends RawPage {
 			"'self'",
 			"'unsafe-inline'",
 			'//fonts.googleapis.com',
-			'//cdnjs.cloudflare.com',
+			'//cdn.staticfile.org',
 		],
 		'font-src' => [ '//fonts.gstatic.com' ],
 		'img-src' => ["'self'"],
