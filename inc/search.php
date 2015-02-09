@@ -22,33 +22,33 @@ const SPHINXQL_PORT = 24492;
 
 function get_orderby_list() {
 	return [
-		"" => "relevance",
-		"creationdate" => "creation date",
-		"attname" => "name",
-		"attship" => "ship",
-		"attshipgroup" => "ship group",
-		"attauthor" => "author",
-		"atttags" => "tags",
-		"score" => "score (votes)",
-		"comments" => "number of comments",
-		"dps" => "damage per second",
-		"ehp" => "effective hitpoints",
-		"estimatedprice" => "estimated price",
+		"" => _("relevance"),
+		"creationdate" => _("creation date"),
+		"attname" => _("name"),
+		"attship" => _("ship"),
+		"attshipgroup" => _("ship group"),
+		"attauthor" => _("author"),
+		"atttags" => _("tags"),
+		"score" => _("score (votes)"),
+		"comments" => _("number of comments"),
+		"dps" => _("damage per second"),
+		"ehp" => _("effective hitpoints"),
+		"estimatedprice" => _("estimated price"),
 	];
 }
 
 function get_operator_list() {
 	return [
-		'gt' => [ '>=', 'or newer' ],
-		'eq' => [ '=', 'exactly' ],
-		'lt' => [ '<=', 'or older' ],
+		'gt' => [ '>=', _('or newer') ],
+		'eq' => [ '=', _('exactly') ],
+		'lt' => [ '<=', _('or older') ],
 	];
 }
 
 function get_order_list() {
 	return [
-		'desc' => 'in descending order',
-		'asc' => 'in ascending order',
+		'desc' => _('in descending order'),
+		'asc' => _('in ascending order'),
 	];
 }
 
