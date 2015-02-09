@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 03:21+0800\n"
-"PO-Revision-Date: 2015-02-10 03:22+0800\n"
+"POT-Creation-Date: 2015-02-10 03:38+0800\n"
+"PO-Revision-Date: 2015-02-10 03:39+0800\n"
 "Last-Translator: CopyLiu <copyliu@gmail.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -151,9 +151,8 @@ msgid "Terminate all my sessions, even on other computers or browsers"
 msgstr "退出所有会话"
 
 #: inc/dom-chrome.php:1002
-#, fuzzy
 msgid "Sign in"
-msgstr "注册"
+msgstr "登陆"
 
 #: inc/dom-chrome.php:1005
 msgid "Sign up"
@@ -304,7 +303,7 @@ msgid "Common tags"
 msgstr "常见标签"
 
 #: src/main.php:133
-msgid "New fits "
+msgid "New fits"
 msgstr "新装配"
 
 #: src/main.php:152 src/main.php:181
