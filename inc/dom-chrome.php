@@ -298,13 +298,13 @@ class Page extends RawPage {
 		$ecf = escapeshellarg($out);
 		$ecmf = escapeshellarg($minout);
 
-		shell_exec($cmd = 'cat '.$snippets.' > '.$ecf);
+		shell_exec($cmd = 'cat '.$snippets." | sed -e 's/image.eveonline.com/".\Osmium\get_ini_setting("eve_iec_domain","image.eveonline.com")."/' > ".$ecf);
 
 		if($min = \Osmium\get_ini_setting('minify_js')) {
 			$command = \Osmium\get_ini_setting('minify_command');
 
 			/* Concatenate & minify */
-			shell_exec('cat '.$ecf." | sed -e 's/image.eveonline.com/".\Osmium\get_ini_setting("eve_iec_domain","image.eveonline.com")."/' | ".$command.' > '.$ecmf);
+			shell_exec('cat '.$ecf." | ".$command.' > '.$ecmf);
 		}
 
 		clearstatcache(true, $minout);
