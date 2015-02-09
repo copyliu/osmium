@@ -27,7 +27,7 @@ define(__NAMESPACE__.'\INI_CONFIGURATION_FILE', ROOT.'/config.ini');
 
 // TODO: set locale with client/user configure.
 setlocale(LC_ALL, get_ini_setting("default_language","en_US"));
-bindtextdomain("osmium", "locale");
+bindtextdomain("osmium", "../locale");
 bind_textdomain_codeset("osmium", 'UTF-8');
 textdomain("osmium");
 
