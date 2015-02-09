@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 03:08+0800\n"
+"POT-Creation-Date: 2015-02-10 03:21+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -157,6 +157,10 @@ msgstr ""
 msgid "Sign up"
 msgstr ""
 
+#: inc/dom-chrome.php:1006
+msgid " or "
+msgstr ""
+
 #: inc/dom-formatter-loadout.php:203
 msgid "(no tags)"
 msgstr ""
@@ -295,6 +299,10 @@ msgstr ""
 
 #: src/main.php:104
 msgid "Common tags"
+msgstr ""
+
+#: src/main.php:133
+msgid "New fits "
 msgstr ""
 
 #: src/main.php:152 src/main.php:181
