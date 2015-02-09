@@ -200,7 +200,7 @@ trait LoadoutFormatter {
 
 		$taglist = trim($lrow['taglist']);
 		if($taglist === '') {
-			$li->appendCreate('em', [ 'class' => 'notags', '(no tags)' ]);
+			$li->appendCreate('em', [ 'class' => 'notags', _('(no tags)') ]);
 		} else {
 			$tags = explode(' ', $taglist);
 			$ul = $li->appendCreate('ul', [ 'class' => 'tags' ]);

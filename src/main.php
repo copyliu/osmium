@@ -101,7 +101,7 @@ $maincont->append($p->fragment(get_cache_memory_or_gen('metrics', 30, function()
 
 $maincont->append($p->fragment(get_cache_memory_or_gen('popular_tags', 3603, function() use($p) {
 	$section = $p->element('section', [ 'class' => 'populartags' ]);
-	$section->appendCreate('h2', 'Common tags');
+	$section->appendCreate('h2', _('Common tags'));
 	$ul = $section->appendCreate('ul', [ 'class' => 'tags', 'id' => 'populartags' ]);
 
 	$query = \Osmium\Db\query(

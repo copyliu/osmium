@@ -511,7 +511,7 @@ class Page extends RawPage {
 	function makeSearchBox($mode = self::MSB_SEARCH) {
 		static $idx = 0;
 
-		static $examples = [
+		$examples = [
 			_("@ship Drake | Tengu @tags missile-boat"),
 			_("@shipgroup Cruiser -Strategic -Heavy @dps >= 500"),
 			_("@tags -armor-tank"),

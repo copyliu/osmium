@@ -3,31 +3,32 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-10 03:01+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2015-02-10 03:02+0800\n"
+"Last-Translator: CopyLiu <copyliu@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: inc/dom-chrome.php:515
 msgid "@ship Drake | Tengu @tags missile-boat"
-msgstr ""
+msgstr "@ship 幼龙级 | 金鹏级 @tags 导弹船"
 
 #: inc/dom-chrome.php:516
 msgid "@shipgroup Cruiser -Strategic -Heavy @dps >= 500"
-msgstr ""
+msgstr "@shipgroup 巡洋 -Strategic -Heavy @dps >= 500"
 
 #: inc/dom-chrome.php:517
 msgid "@tags -armor-tank"
-msgstr ""
+msgstr "@tags -甲扛"
 
 #: inc/dom-chrome.php:518
 msgid "@dps >= 400 @ehp >= 40k @tags pvp"
@@ -47,15 +48,15 @@ msgstr ""
 
 #: inc/dom-chrome.php:555
 msgid "Go!"
-msgstr ""
+msgstr "搜索"
 
 #: inc/dom-chrome.php:562
 msgid "Advanced search"
-msgstr ""
+msgstr "高级搜索"
 
 #: inc/dom-chrome.php:600
 msgid " Only show loadouts "
-msgstr ""
+msgstr " 只显示装配"
 
 #: inc/dom-chrome.php:602
 msgid " can fly"
@@ -63,99 +64,99 @@ msgstr ""
 
 #: inc/dom-chrome.php:616
 msgid " only show "
-msgstr ""
+msgstr "只显示"
 
 #: inc/dom-chrome.php:618
 msgid " loadouts"
-msgstr ""
+msgstr "总共装配"
 
 #: inc/dom-chrome.php:628
 msgid "Search loadouts"
-msgstr ""
+msgstr "搜索装配"
 
 #: inc/dom-chrome.php:628
 msgid "Filter loadouts"
-msgstr ""
+msgstr "筛选装配"
 
 #: inc/dom-chrome.php:706
 msgid "Showing rows %1-%2 of %3."
-msgstr ""
+msgstr "显示第 %1 - %2 条记录, 总共 %3 ."
 
 #: inc/dom-chrome.php:768
 msgid "go to previous page"
-msgstr ""
+msgstr "上一页"
 
 #: inc/dom-chrome.php:773
 msgid "go to first page"
-msgstr ""
+msgstr "第一页"
 
 #: inc/dom-chrome.php:810
 msgid "go to next page"
-msgstr ""
+msgstr "下一页"
 
 #: inc/dom-chrome.php:815
 msgid "go to last page"
-msgstr ""
+msgstr "最后一页"
 
 #: inc/dom-chrome.php:887
 msgid "Go to the home page"
-msgstr ""
+msgstr "返回首页"
 
 #: inc/dom-chrome.php:888
 msgid "Create loadout"
-msgstr ""
+msgstr "新建装配"
 
 #: inc/dom-chrome.php:888
 msgid "Create"
-msgstr ""
+msgstr "新建"
 
 #: inc/dom-chrome.php:888
 msgid "Create a new fitting"
-msgstr ""
+msgstr "新建一个新装配"
 
 #: inc/dom-chrome.php:889
 msgid "Import"
-msgstr ""
+msgstr "导入"
 
 #: inc/dom-chrome.php:890
 msgid "Import one or more fittings from various formats"
-msgstr ""
+msgstr "导入一个或多个装配"
 
 #: inc/dom-chrome.php:891
 msgid "Convert"
-msgstr ""
+msgstr "转换"
 
 #: inc/dom-chrome.php:892
 msgid "Quickly convert fittings from one format to another"
-msgstr ""
+msgstr "转换装配文件格式"
 
 #: inc/dom-chrome.php:896
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: inc/dom-chrome.php:902
 msgid "Moderation"
-msgstr ""
+msgstr "管理员"
 
 #: inc/dom-chrome.php:980
 msgid " new notification(s)"
-msgstr ""
+msgstr " 条新消息"
 
 #: inc/dom-chrome.php:984
 msgid "Sign out"
-msgstr ""
+msgstr "注销"
 
 #: inc/dom-chrome.php:990
 msgid "Terminate all my sessions, even on other computers or browsers"
-msgstr ""
+msgstr "退出所有会话"
 
 #: inc/dom-chrome.php:1005
 msgid "Sign up"
-msgstr ""
+msgstr "注册"
 
 #: inc/dom-formatter-loadout.php:203
 msgid "(no tags)"
-msgstr ""
+msgstr "(没有标签)"
 
 #: inc/search.php:25
 msgid "relevance"
@@ -163,160 +164,160 @@ msgstr ""
 
 #: inc/search.php:26
 msgid "creation date"
-msgstr ""
+msgstr "建立日期"
 
 #: inc/search.php:27
 msgid "name"
-msgstr ""
+msgstr "名字"
 
 #: inc/search.php:28
 msgid "ship"
-msgstr ""
+msgstr "船只"
 
 #: inc/search.php:29
 msgid "ship group"
-msgstr ""
+msgstr "舰船类型"
 
 #: inc/search.php:30
 msgid "author"
-msgstr ""
+msgstr "作者"
 
 #: inc/search.php:31
 msgid "tags"
-msgstr ""
+msgstr "标签"
 
 #: inc/search.php:32
 msgid "score (votes)"
-msgstr ""
+msgstr "分数(票数)"
 
 #: inc/search.php:33
 msgid "number of comments"
-msgstr ""
+msgstr "评论条数"
 
 #: inc/search.php:34
 msgid "damage per second"
-msgstr ""
+msgstr "DPS"
 
 #: inc/search.php:35
 msgid "effective hitpoints"
-msgstr ""
+msgstr "有效HP"
 
 #: inc/search.php:36
 msgid "estimated price"
-msgstr ""
+msgstr "估值"
 
 #: inc/search.php:42
 msgid "or newer"
-msgstr ""
+msgstr "更新"
 
 #: inc/search.php:43
 msgid "exactly"
-msgstr ""
+msgstr "相等"
 
 #: inc/search.php:44
 msgid "or older"
-msgstr ""
+msgstr "更旧"
 
 #: inc/search.php:50
 msgid "in descending order"
-msgstr ""
+msgstr "倒序"
 
 #: inc/search.php:51
 msgid "in ascending order"
-msgstr ""
+msgstr "正序"
 
 #: src/main.php:66
 msgid "Quick stats"
-msgstr ""
+msgstr "统计"
 
 #: src/main.php:75
 msgid "loadout"
-msgstr ""
+msgstr "装配方案"
 
 #: src/main.php:75
 msgid "total loadouts"
-msgstr ""
+msgstr "总共装配"
 
 #: src/main.php:76
 msgid "fitting"
-msgstr ""
+msgstr "装配种类"
 
 #: src/main.php:76
 msgid "distinct fittings"
-msgstr ""
+msgstr "装配种类"
 
 #: src/main.php:77
 msgid "fitted module"
-msgstr ""
+msgstr "已装配装备"
 
 #: src/main.php:77
 msgid "total fitted modules"
-msgstr ""
+msgstr "已装配装备"
 
 #: src/main.php:78
 msgid "dogma context"
-msgstr ""
+msgstr "dogma 实例"
 
 #: src/main.php:78
 msgid "dogma contexts"
-msgstr ""
+msgstr "dogma 实例"
 
 #: src/main.php:81
 msgid "account"
-msgstr ""
+msgstr "账号"
 
 #: src/main.php:81
 msgid "accounts"
-msgstr ""
+msgstr "账号"
 
 #: src/main.php:87
 msgid "verified account"
-msgstr ""
+msgstr "已验证账号"
 
 #: src/main.php:87
 msgid "verified accounts"
-msgstr ""
+msgstr "已验证账号"
 
 #: src/main.php:92
 msgid "total reputation points"
-msgstr ""
+msgstr "声望点数"
 
 #: src/main.php:93
 msgid "active user"
-msgstr ""
+msgstr "在线用户"
 
 #: src/main.php:93
 msgid "active users"
-msgstr ""
+msgstr "在线用户"
 
 #: src/main.php:104
 msgid "Common tags"
-msgstr ""
+msgstr "常见标签"
 
 #: src/main.php:152 src/main.php:181
 msgid "No loadouts yet! What are you waiting for?"
-msgstr ""
+msgstr "没有装配! 请立即新建一个!"
 
 #: src/main.php:158
 msgid "Browse more new loadouts…"
-msgstr ""
+msgstr "浏览更多装配方案"
 
 #: src/main.php:169
 msgid "Popular fits"
-msgstr ""
+msgstr "人气配置"
 
 #: src/main.php:187
 msgid "Browse more popular loadouts…"
-msgstr ""
+msgstr "浏览更多人气配置"
 
 #: src/main.php:198
 msgid "Flavors of the week "
-msgstr ""
+msgstr "本周最佳"
 
 #: src/main.php:199 src/main.php:248
 msgid "data from "
-msgstr ""
+msgstr "数据来源:"
 
 #: src/main.php:247
 msgid "Popular alliance doctrines "
-msgstr ""
+msgstr "联盟装配"
