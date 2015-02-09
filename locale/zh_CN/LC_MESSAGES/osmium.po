@@ -5,18 +5,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: osmium\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-10 03:38+0800\n"
-"PO-Revision-Date: 2015-02-10 03:39+0800\n"
+"PO-Revision-Date: 2015-02-10 03:46+0800\n"
 "Last-Translator: CopyLiu <copyliu@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: Liu JianShen <copyliu@gmail.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.4\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #: inc/dom-chrome.php:515
 msgid "@ship Drake | Tengu @tags missile-boat"
@@ -303,7 +304,7 @@ msgid "Common tags"
 msgstr "常见标签"
 
 #: src/main.php:133
-msgid "New fits"
+msgid "New fits "
 msgstr "新装配"
 
 #: src/main.php:152 src/main.php:181
