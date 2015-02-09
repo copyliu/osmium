@@ -856,7 +856,7 @@ class Page extends RawPage {
 		$this->head->appendCreate('link', [
 			'rel' => 'stylesheet',
 			'type' => 'text/css',
-			'href' => '//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic|Droid+Sans:400,700|Droid+Sans+Mono',
+			'href' => '//fonts.useso.com/css?family=Droid+Serif:400,400italic,700,700italic|Droid+Sans:400,700|Droid+Sans+Mono',
 		]);
 	}
 
