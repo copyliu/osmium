@@ -40,7 +40,7 @@ class Page extends RawPage {
 		],
 		'font-src' => [ '//fonts.gstatic.com' ],
 		'img-src' => ["'self'"],
-		'script-src' => [ "'self'", '//cdnjs.cloudflare.com' ],
+		'script-src' => [ "'self'", '//cdn.staticfile.org' ],
 		'connect-src' => [ "'self'" ],
 	];
 

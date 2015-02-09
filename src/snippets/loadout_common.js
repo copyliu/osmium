@@ -17,7 +17,7 @@
  */
 
 /* Whenever you change this script, update the information in about.php. */
-/*<<< require external //cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js >>>*/
+/*<<< require external //cdn.staticfile.org/jqueryui/1.10.3/jquery-ui.min.js >>>*/
 /*<<< require external /static-1/jquery.jsPlumb-1.6.0-min.js >>>*/
 /*<<< require external /static-1/rawdeflate.min.js >>>*/
 
