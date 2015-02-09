@@ -187,14 +187,14 @@ mg = eve.RemoteSvc("marketProxy").GetMarketGroups()
 processRows("eve.invmarketgroups", {
     "marketgroupid": "marketGroupID",
     "parentgroupid": "parentGroupID",
-    "marketgroupname": (lambda row: row.marketGroupName if row.marketGroupName != '' else cfg._localization.GetByMessageID(row.marketGroupNameID)),
+    "marketgroupname": (lambda row:  cfg._localization.GetByMessageID(row.marketGroupNameID)),
 }, flattenRows(mg));
 
 
 
 processRows("eve.invmetagroups", {
     "metagroupid": "metaGroupID",
-    "metagroupname": "metaGroupName",
+    "metagroupname": (lambda row:  cfg._localization.GetByMessageID(row.metaGroupNameID)),
 }, cfg.invmetagroups);
 
 
