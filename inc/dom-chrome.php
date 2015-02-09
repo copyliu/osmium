@@ -39,7 +39,7 @@ class Page extends RawPage {
 			'//cdnjs.cloudflare.com',
 		],
 		'font-src' => [ '//fonts.gstatic.com' ],
-		'img-src' => [ "'self'", '//image.eveonline.com' ],
+		'img-src' => ["'self'"],
 		'script-src' => [ "'self'", '//cdnjs.cloudflare.com' ],
 		'connect-src' => [ "'self'" ],
 	];
@@ -318,7 +318,7 @@ class Page extends RawPage {
 
 	function __construct() {
 		parent::__construct();
-
+		$this->csp["img-src"][] = \Osmium\get_ini_setting("eve_iec_domain", "image.eveonline.com");
 		$this->html = $this->element('html');
 		$this->head = $this->html->appendCreate('head');
 		$this->body = $this->html->appendCreate('body');
@@ -852,12 +852,13 @@ class Page extends RawPage {
 				'o-static-css-href' => '/'.$turi
 			]);
 		}
-
-		$this->head->appendCreate('link', [
-			'rel' => 'stylesheet',
-			'type' => 'text/css',
-			'href' => '//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic|Droid+Sans:400,700|Droid+Sans+Mono',
-		]);
+		if(\Osmium\get_ini_setting("use_google_apis")){
+			$this->head->appendCreate('link', [
+				'rel' => 'stylesheet',
+				'type' => 'text/css',
+				'href' => '//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic|Droid+Sans:400,700|Droid+Sans+Mono',
+			]);
+		}
 	}
 
 
