@@ -124,10 +124,9 @@ function fatal($code, $message = '', $title = null, $showbt = null, $die = true)
 
 		header(
 			'Content-Security-Policy: default-src \'none\''
-			.' ; style-src \'self\' https://fonts.googleapis.com'
-			.' ; font-src https://themes.googleusercontent.com'
+			.' ; style-src \'self\' https://fonts.googleapis.com http://fonts.useso.com'
+			.' ; font-src https://themes.googleusercontent.com http://fontstatic.useso.com'
 			.' ; img-src \'self\''
-			.' ; fuckyou \'self\' http://fonts.useso.com'
 		);
 	}
 
