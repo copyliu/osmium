@@ -37,8 +37,9 @@ class Page extends RawPage {
 			"'unsafe-inline'",
 			'//fonts.googleapis.com',
 			'//cdnjs.cloudflare.com',
+			'//fonts.useso.com'
 		],
-		'font-src' => [ '//fonts.gstatic.com' ],
+		'font-src' => [ '//fonts.gstatic.com','//fontstatic.useso.com' ],
 		'img-src' => [ "'self'", '//image.eveonline.com' ],
 		'script-src' => [ "'self'", '//cdnjs.cloudflare.com' ],
 		'connect-src' => [ "'self'" ],
