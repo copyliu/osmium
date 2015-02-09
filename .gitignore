@@ -11,3 +11,4 @@ static/robots.txt
 tests/coverage
 pgsql/osmium-sde-*
 pgsql/osmium-full-*
+.idea/*
