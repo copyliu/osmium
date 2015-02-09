@@ -295,20 +295,16 @@ class Page extends RawPage {
 		$snippets = implode(' ', array_map(function($s) {
 			return escapeshellarg(\Osmium\ROOT.'/src/snippets/'.$s.'.js');
 		}, $snippets));
-
-		//replace image.eveonline.com to site config address
-		$snippets = str_replace("image.eveonline.com",\Osmium\get_ini_setting("eve_iec_domain","image.eveonline.com"),$snippets);
-
 		$ecf = escapeshellarg($out);
 		$ecmf = escapeshellarg($minout);
 
-		shell_exec($cmd = 'cat '.$snippets.' > '.$ecf);
+		shell_exec($cmd = 'cat '.$snippets." | sed -e 's/image.eveonline.com/".\Osmium\get_ini_setting("eve_iec_domain","image.eveonline.com")."/' > ".$ecf);
 
 		if($min = \Osmium\get_ini_setting('minify_js')) {
 			$command = \Osmium\get_ini_setting('minify_command');
 
 			/* Concatenate & minify */
-			shell_exec('cat '.$ecf.' | '.$command.' > '.$ecmf);
+			shell_exec('cat '.$ecf." | ".$command.' > '.$ecmf);
 		}
 
 		clearstatcache(true, $minout);
