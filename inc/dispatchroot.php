@@ -26,8 +26,7 @@ define(__NAMESPACE__.'\ROOT', realpath(__DIR__.'/../'));
 define(__NAMESPACE__.'\INI_CONFIGURATION_FILE', ROOT.'/config.ini');
 
 // TODO: set locale with client/user configure.
-putenv('LC_ALL='.get_ini_setting("default_language","en_US"));
-setlocale(LC_ALL, get_ini_setting("default_language","en_US"));
+setlocale(LC_ALL, get_ini_setting("default_language","en_US").".UTF_8");
 bindtextdomain("osmium", ROOT.'/locale');
 bind_textdomain_codeset("osmium", 'UTF-8');
 textdomain("osmium");
