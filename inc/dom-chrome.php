@@ -999,7 +999,7 @@ class Page extends RawPage {
 			$p = $div->appendCreate('p');
 			$p->appendCreate('a', [ 'o-rel-href' => '/login'.$this->formatQueryString([
 				'r' => $_SERVER['REQUEST_URI'],
-			]), 'Sign in' ]);
+			]), _('Sign in') ]);
 
 			if(\Osmium\get_ini_setting('registration_enabled')) {
 				$reglink = [ 'a', [ 'o-rel-href' => '/register', [ 'strong', _('Sign up') ] ] ];

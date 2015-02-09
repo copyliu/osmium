@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 03:01+0800\n"
-"PO-Revision-Date: 2015-02-10 03:02+0800\n"
+"POT-Creation-Date: 2015-02-10 03:08+0800\n"
+"PO-Revision-Date: 2015-02-10 03:08+0800\n"
 "Last-Translator: CopyLiu <copyliu@gmail.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -149,6 +149,11 @@ msgstr "注销"
 #: inc/dom-chrome.php:990
 msgid "Terminate all my sessions, even on other computers or browsers"
 msgstr "退出所有会话"
+
+#: inc/dom-chrome.php:1002
+#, fuzzy
+msgid "Sign in"
+msgstr "注册"
 
 #: inc/dom-chrome.php:1005
 msgid "Sign up"
