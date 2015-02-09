@@ -295,6 +295,10 @@ class Page extends RawPage {
 		$snippets = implode(' ', array_map(function($s) {
 			return escapeshellarg(\Osmium\ROOT.'/src/snippets/'.$s.'.js');
 		}, $snippets));
+
+		//replace image.eveonline.com to site config address
+		$snippets = str_replace("image.eveonline.com",\Osmium\get_ini_setting("eve_iec_domain","image.eveonline.com"),$snippets);
+
 		$ecf = escapeshellarg($out);
 		$ecmf = escapeshellarg($minout);
 
