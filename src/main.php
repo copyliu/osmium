@@ -63,7 +63,7 @@ $maincont = $p->content->appendCreate('div', [ 'class' => 'mainpcont' ]);
 $maincont->append($p->fragment(get_cache_memory_or_gen('metrics', 30, function() use($p) {
 	$section = $p->element('section', [
 		'class' => 'metrics',
-		[ 'h2', 'Quick stats' ],
+		[ 'h2', _('Quick stats') ],
 	]);
 
 	$nctx = \Osmium\State\count_cache_entries([ 'mmin' => 10 ], 'Loadout_New_')
@@ -72,25 +72,25 @@ $maincont->append($p->fragment(get_cache_memory_or_gen('metrics', 30, function()
 	$nusers = \Osmium\State\get_cache_memory('ActivityCount', 1);
 
 	$ul = $section->appendCreate('ul');
-	$ul->appendCreate('li', get_estimate_count($p, 'loadouts', 'loadout', 'total loadouts'));
-	$ul->appendCreate('li', get_estimate_count($p, 'fittings', 'fitting', 'distinct fittings'));
-	$ul->appendCreate('li', get_estimate_count($p, 'fittingmodules', 'fitted module', 'total fitted modules'));
-	$ul->append(get_li($p, $nctx, 'dogma context', 'dogma contexts'));
+	$ul->appendCreate('li', get_estimate_count($p, 'loadouts', _('loadout'), _('total loadouts')));
+	$ul->appendCreate('li', get_estimate_count($p, 'fittings', _('fitting'), _('distinct fittings')));
+	$ul->appendCreate('li', get_estimate_count($p, 'fittingmodules', _('fitted module'), _('total fitted modules')));
+	$ul->append(get_li($p, $nctx, _('dogma context'), _('dogma contexts')));
 
 	$ul = $section->appendCreate('ul');
-	$ul->appendCreate('li', get_estimate_count($p, 'accounts', 'account', 'accounts'));
+	$ul->appendCreate('li', get_estimate_count($p, 'accounts', _('account'), _('accounts')));
 	$ul->append([
 		get_cached_li($p, function() {
 			return (int)\Osmium\Db\fetch_row(\Osmium\Db\query(
 				'SELECT count(accountid) FROM accounts WHERE apiverified = true'
 			))[0];
-		}, 'verified_accounts', 3601, 'verified account', 'verified accounts'),
+		}, 'verified_accounts', 3601, _('verified account'), _('verified accounts')),
 		get_cached_li($p, function() {
 			return (int)\Osmium\Db\fetch_row(\Osmium\Db\query(
 				'SELECT sum(reputation) FROM accounts'
 			))[0];
-		}, 'reputation_total', 3602, 'total reputation points', 'total reputation points'),
-		get_li($p, $nusers, 'active user', 'active users'),
+		}, 'reputation_total', 3602, _('total reputation points'), _('total reputation points')),
+		get_li($p, $nusers, _('active user'), _('active users')),
 	]);
 
 	return $section->renderNode();
@@ -149,13 +149,13 @@ $maincont->append($p->fragment(get_cache_memory_or_gen(
 		} else {
 			$section->appendCreate('p', [
 				'class' => 'placeholder',
-				'No loadouts yet! What are you waiting for?',
+				_('No loadouts yet! What are you waiting for?'),
 			]);
 		}
 
 		$section->appendCreate('p', [
 			'class' => 'b_more',
-			[ 'a', [ 'o-rel-href' => '/browse/new', 'Browse more new loadouts…' ] ],
+			[ 'a', [ 'o-rel-href' => '/browse/new', _('Browse more new loadouts…') ] ],
 		]);
 
 		return $section->renderNode();
@@ -166,7 +166,7 @@ $maincont->append($p->fragment(get_cache_memory_or_gen(
 $maincont->append($p->fragment(get_cache_memory_or_gen(
 	'popular_fits_'.$a['accountid'], 602, function() use($p) {
 		$section = $p->element('section', [ 'class' => 'popularfits' ]);
-		$section->appendCreate('h2', 'Popular fits');
+		$section->appendCreate('h2', _('Popular fits'));
 
 		$vercutoff = \Osmium\Fit\get_build_cutoff();
 		$ids = \Osmium\Search\get_search_ids(
@@ -178,13 +178,13 @@ $maincont->append($p->fragment(get_cache_memory_or_gen(
 		} else {
 			$section->appendCreate('p', [
 				'class' => 'placeholder',
-				'No loadouts yet! What are you waiting for?',
+				_('No loadouts yet! What are you waiting for?'),
 			]);
 		}
 
 		$section->appendCreate('p', [
 			'class' => 'b_more',
-			[ 'a', [ 'o-rel-href' => '/browse/best', 'Browse more popular loadouts…' ] ],
+			[ 'a', [ 'o-rel-href' => '/browse/best', _('Browse more popular loadouts…') ] ],
 		]);
 
 		return $section->renderNode();
@@ -195,8 +195,8 @@ $maincont->append($p->fragment(get_cache_memory_or_gen(
 $maincont->append($p->fragment(get_cache_memory_or_gen('fotw', 603, function() use($p) {
 	$section = $p->element('section', [ 'class' => 'fotw' ]);
 	$section->appendCreate('h2', [
-		'Flavors of the week ',
-		[ 'small', [ 'data from ', [ 'a', [ 'href' => 'https://zkillboard.com/', 'zKillboard' ] ] ] ],
+		_('Flavors of the week '),
+		[ 'small', [ _('data from '), [ 'a', [ 'href' => 'https://zkillboard.com/', 'zKillboard' ] ] ] ],
 	]);
 
 	$topkills = \Osmium\State\get_cache('top_kills', null);
@@ -244,8 +244,8 @@ $maincont->append($p->fragment(get_cache_memory_or_gen('fotw', 603, function() u
 $maincont->append($p->fragment(get_cache_memory_or_gen('doctrines', 604, function() use($p) {
 	$section = $p->element('section', [ 'class' => 'doctrines' ]);
 	$section->appendCreate('h2', [
-		'Popular alliance doctrines ',
-		[ 'small', [ 'data from ', [ 'a', [ 'href' => 'https://zkillboard.com/', 'zKillboard' ] ] ] ],
+		_('Popular alliance doctrines '),
+		[ 'small', [ _('data from '), [ 'a', [ 'href' => 'https://zkillboard.com/', 'zKillboard' ] ] ] ],
 	]);
 
 	$topkills = \Osmium\State\get_cache('top_kills', null);

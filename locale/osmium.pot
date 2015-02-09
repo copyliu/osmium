@@ -1,0 +1,314 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-10 02:14+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: inc/dom-chrome.php:515
+msgid "@ship Drake | Tengu @tags missile-boat"
+msgstr ""
+
+#: inc/dom-chrome.php:516
+msgid "@shipgroup Cruiser -Strategic -Heavy @dps >= 500"
+msgstr ""
+
+#: inc/dom-chrome.php:517
+msgid "@tags -armor-tank"
+msgstr ""
+
+#: inc/dom-chrome.php:518
+msgid "@dps >= 400 @ehp >= 40k @tags pvp"
+msgstr ""
+
+#: inc/dom-chrome.php:519
+msgid "battlecruiser @types \"stasis webifier\""
+msgstr ""
+
+#: inc/dom-chrome.php:520
+msgid "@tags cheap low-sp @estimatedprice <= 10m"
+msgstr ""
+
+#: inc/dom-chrome.php:521
+msgid "battleship @tags pve|l4|missions"
+msgstr ""
+
+#: inc/dom-chrome.php:555
+msgid "Go!"
+msgstr ""
+
+#: inc/dom-chrome.php:562
+msgid "Advanced search"
+msgstr ""
+
+#: inc/dom-chrome.php:600
+msgid " Only show loadouts "
+msgstr ""
+
+#: inc/dom-chrome.php:602
+msgid " can fly"
+msgstr ""
+
+#: inc/dom-chrome.php:616
+msgid " only show "
+msgstr ""
+
+#: inc/dom-chrome.php:618
+msgid " loadouts"
+msgstr ""
+
+#: inc/dom-chrome.php:628
+msgid "Search loadouts"
+msgstr ""
+
+#: inc/dom-chrome.php:628
+msgid "Filter loadouts"
+msgstr ""
+
+#: inc/dom-chrome.php:706
+msgid "Showing rows %1-%2 of %3."
+msgstr ""
+
+#: inc/dom-chrome.php:768
+msgid "go to previous page"
+msgstr ""
+
+#: inc/dom-chrome.php:773
+msgid "go to first page"
+msgstr ""
+
+#: inc/dom-chrome.php:810
+msgid "go to next page"
+msgstr ""
+
+#: inc/dom-chrome.php:815
+msgid "go to last page"
+msgstr ""
+
+#: inc/dom-chrome.php:887
+msgid "Go to the home page"
+msgstr ""
+
+#: inc/dom-chrome.php:888
+msgid "Create loadout"
+msgstr ""
+
+#: inc/dom-chrome.php:888
+msgid "Create"
+msgstr ""
+
+#: inc/dom-chrome.php:888
+msgid "Create a new fitting"
+msgstr ""
+
+#: inc/dom-chrome.php:889
+msgid "Import"
+msgstr ""
+
+#: inc/dom-chrome.php:890
+msgid "Import one or more fittings from various formats"
+msgstr ""
+
+#: inc/dom-chrome.php:891
+msgid "Convert"
+msgstr ""
+
+#: inc/dom-chrome.php:892
+msgid "Quickly convert fittings from one format to another"
+msgstr ""
+
+#: inc/dom-chrome.php:896
+msgid "Settings"
+msgstr ""
+
+#: inc/dom-chrome.php:902
+msgid "Moderation"
+msgstr ""
+
+#: inc/dom-chrome.php:980
+msgid " new notification(s)"
+msgstr ""
+
+#: inc/dom-chrome.php:984
+msgid "Sign out"
+msgstr ""
+
+#: inc/dom-chrome.php:990
+msgid "Terminate all my sessions, even on other computers or browsers"
+msgstr ""
+
+#: inc/dom-chrome.php:1005
+msgid "Sign up"
+msgstr ""
+
+#: inc/search.php:25
+msgid "relevance"
+msgstr ""
+
+#: inc/search.php:26
+msgid "creation date"
+msgstr ""
+
+#: inc/search.php:27
+msgid "name"
+msgstr ""
+
+#: inc/search.php:28
+msgid "ship"
+msgstr ""
+
+#: inc/search.php:29
+msgid "ship group"
+msgstr ""
+
+#: inc/search.php:30
+msgid "author"
+msgstr ""
+
+#: inc/search.php:31
+msgid "tags"
+msgstr ""
+
+#: inc/search.php:32
+msgid "score (votes)"
+msgstr ""
+
+#: inc/search.php:33
+msgid "number of comments"
+msgstr ""
+
+#: inc/search.php:34
+msgid "damage per second"
+msgstr ""
+
+#: inc/search.php:35
+msgid "effective hitpoints"
+msgstr ""
+
+#: inc/search.php:36
+msgid "estimated price"
+msgstr ""
+
+#: inc/search.php:42
+msgid "or newer"
+msgstr ""
+
+#: inc/search.php:43
+msgid "exactly"
+msgstr ""
+
+#: inc/search.php:44
+msgid "or older"
+msgstr ""
+
+#: inc/search.php:50
+msgid "in descending order"
+msgstr ""
+
+#: inc/search.php:51
+msgid "in ascending order"
+msgstr ""
+
+#: src/main.php:66
+msgid "Quick stats"
+msgstr ""
+
+#: src/main.php:75
+msgid "loadout"
+msgstr ""
+
+#: src/main.php:75
+msgid "total loadouts"
+msgstr ""
+
+#: src/main.php:76
+msgid "fitting"
+msgstr ""
+
+#: src/main.php:76
+msgid "distinct fittings"
+msgstr ""
+
+#: src/main.php:77
+msgid "fitted module"
+msgstr ""
+
+#: src/main.php:77
+msgid "total fitted modules"
+msgstr ""
+
+#: src/main.php:78
+msgid "dogma context"
+msgstr ""
+
+#: src/main.php:78
+msgid "dogma contexts"
+msgstr ""
+
+#: src/main.php:81
+msgid "account"
+msgstr ""
+
+#: src/main.php:81
+msgid "accounts"
+msgstr ""
+
+#: src/main.php:87
+msgid "verified account"
+msgstr ""
+
+#: src/main.php:87
+msgid "verified accounts"
+msgstr ""
+
+#: src/main.php:92
+msgid "total reputation points"
+msgstr ""
+
+#: src/main.php:93
+msgid "active user"
+msgstr ""
+
+#: src/main.php:93
+msgid "active users"
+msgstr ""
+
+#: src/main.php:152 src/main.php:181
+msgid "No loadouts yet! What are you waiting for?"
+msgstr ""
+
+#: src/main.php:158
+msgid "Browse more new loadouts…"
+msgstr ""
+
+#: src/main.php:169
+msgid "Popular fits"
+msgstr ""
+
+#: src/main.php:187
+msgid "Browse more popular loadouts…"
+msgstr ""
+
+#: src/main.php:198
+msgid "Flavors of the week "
+msgstr ""
+
+#: src/main.php:199 src/main.php:248
+msgid "data from "
+msgstr ""
+
+#: src/main.php:247
+msgid "Popular alliance doctrines "
+msgstr ""

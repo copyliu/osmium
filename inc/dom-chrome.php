@@ -39,7 +39,7 @@ class Page extends RawPage {
 			'//cdnjs.cloudflare.com',
 		],
 		'font-src' => [ '//fonts.gstatic.com' ],
-		'img-src' => [ "'self'", '//image.eveonline.com' ],
+		'img-src' => ["'self'"],
 		'script-src' => [ "'self'", '//cdnjs.cloudflare.com' ],
 		'connect-src' => [ "'self'" ],
 	];
@@ -318,7 +318,7 @@ class Page extends RawPage {
 
 	function __construct() {
 		parent::__construct();
-
+		$this->csp["img-src"][] = \Osmium\get_ini_setting("eve_iec_domain", "image.eveonline.com");
 		$this->html = $this->element('html');
 		$this->head = $this->html->appendCreate('head');
 		$this->body = $this->html->appendCreate('body');
@@ -512,13 +512,13 @@ class Page extends RawPage {
 		static $idx = 0;
 
 		static $examples = [
-			"@ship Drake | Tengu @tags missile-boat",
-			"@shipgroup Cruiser -Strategic -Heavy @dps >= 500",
-			"@tags -armor-tank",
-			"@dps >= 400 @ehp >= 40k @tags pvp",
-			"battlecruiser @types \"stasis webifier\"",
-			"@tags cheap low-sp @estimatedprice <= 10m",
-			"battleship @tags pve|l4|missions",
+			_("@ship Drake | Tengu @tags missile-boat"),
+			_("@shipgroup Cruiser -Strategic -Heavy @dps >= 500"),
+			_("@tags -armor-tank"),
+			_("@dps >= 400 @ehp >= 40k @tags pvp"),
+			_("battlecruiser @types \"stasis webifier\""),
+			_("@tags cheap low-sp @estimatedprice <= 10m"),
+			_("battleship @tags pve|l4|missions"),
 		];
 
 		$f = $this->element('o-form', [ 'method' => 'get' ]);
@@ -552,14 +552,14 @@ class Page extends RawPage {
 			]],
 			[ 'input', [
 				'type' => 'submit',
-				'value' => 'Go!',
+				'value' => _('Go!'),
 			]],
 			[ 'br' ],
 		]);
 
 		if(isset($_GET['ad']) && $_GET['ad'] === '1') {
 			/* Advanced search mode */
-			$label->append('Advanced search');
+			$label->append(_('Advanced search'));
 
 			$sbuild = $this->element('o-select', [ 'name' => 'build' ]);
 			foreach(\Osmium\Fit\get_eve_db_versions() as $v) {
@@ -597,9 +597,9 @@ class Page extends RawPage {
 				$p->append([
 					[ 'br' ],
 					[ 'o-input', [ 'type' => 'checkbox', 'name' => 'sr', 'id' => 'sr' ] ],
-					[ 'label', [ 'for' => 'sr', ' Only show loadouts ' ] ],
+					[ 'label', [ 'for' => 'sr', _(' Only show loadouts ') ] ],
 					$sskillsets,
-					[ 'label', [ 'for' => 'sr', ' can fly' ] ],
+					[ 'label', [ 'for' => 'sr', _(' can fly') ] ],
 				]);
 
 				$this->snippets[] = 'searchform';
@@ -613,9 +613,9 @@ class Page extends RawPage {
 			$p->append([
 				[ 'br' ],
 				[ 'o-input', [ 'type' => 'checkbox', 'name' => 'vr', 'id' => 'vr' ] ],
-				[ 'label', [ 'for' => 'vr', ' only show ' ] ],
+				[ 'label', [ 'for' => 'vr', _(' only show ') ] ],
 				$vtypes,
-				[ 'label', [ 'for' => 'vr', ' loadouts' ] ],
+				[ 'label', [ 'for' => 'vr', _(' loadouts') ] ],
 			]);
 
 			$p->append([
@@ -625,7 +625,7 @@ class Page extends RawPage {
 
 		} else {
 			/* Simple search mode, show a link to advanced mode and nothing else */
-			$label->append(($mode === self::MSB_SEARCH ? 'Search' : 'Filter').' loadouts');
+			$label->append(($mode === self::MSB_SEARCH ? _('Search loadouts') : _('Filter loadouts')));
 
 			/* XXX: get_search_cond_from_advanced() will set some
 			 * default values in $_GET. Ugly side effect, get rid of
@@ -682,15 +682,13 @@ class Page extends RawPage {
 	}
 
 
-
 	/**
 	 * Generate pagination links and get the offset of the current page.
 	 *
-	 * @param $wrap insert pagination links before/after this element.
-	 * @param array $opts an array of options.
 	 * @param integer $total the total number of elements.
 	 *
-	 * @return [ offset of the current page, <p> with meta info, <ol>
+	 * @param array $opts an array of options.
+	 * @return array [ offset of the current page, <p> with meta info, <ol>
 	 * of pagination links ]
 	 */
 	public function makePagination($total, array $opts = []) {
@@ -705,7 +703,7 @@ class Page extends RawPage {
 			'pageoverride' => false,
 
 			/* Format of the shown text indicating the position within the result set */
-			'format' => 'Showing rows %1-%2 of %3.',
+			'format' => _('Showing rows %1-%2 of %3.'),
 
 			/* Override the shown total */
 			'ftotal' => $this->formatExactInteger($total),
@@ -767,12 +765,12 @@ class Page extends RawPage {
 					'href' => $uri,
 				]);
 			}
-			$prev->appendCreate('a', [ 'title' => 'go to previous page', 'href' => $uri, '⇦' ]);
+			$prev->appendCreate('a', [ 'title' => _('go to previous page'), 'href' => $uri, '⇦' ]);
 
 			$params[$name] = 1;
 			$first->appendCreate('a', [
 				'href' => $this->formatQueryString($params).$opts['anchor'],
-				'title' => 'go to first page',
+				'title' => _('go to first page'),
 				'⇤',
 			]);
 		} else {
@@ -809,12 +807,12 @@ class Page extends RawPage {
 					'href' => $uri,
 				]);
 			}
-			$next->appendCreate('a', [ 'title' => 'go to next page', 'href' => $uri, '⇨' ]);
+			$next->appendCreate('a', [ 'title' =>_( 'go to next page'), 'href' => $uri, '⇨' ]);
 
 			$params[$name] = $maxpage;
 			$last->appendCreate('a', [
 				'href' => $this->formatQueryString($params).$opts['anchor'],
-				'title' => 'go to last page',
+				'title' => _('go to last page'),
 				'⇥',
 			]);
 		} else {
@@ -852,12 +850,13 @@ class Page extends RawPage {
 				'o-static-css-href' => '/'.$turi
 			]);
 		}
-
-		$this->head->appendCreate('link', [
-			'rel' => 'stylesheet',
-			'type' => 'text/css',
-			'href' => '//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic|Droid+Sans:400,700|Droid+Sans+Mono',
-		]);
+		if(\Osmium\get_ini_setting("use_google_apis",true)){
+			$this->head->appendCreate('link', [
+				'rel' => 'stylesheet',
+				'type' => 'text/css',
+				'href' => '//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic|Droid+Sans:400,700|Droid+Sans+Mono',
+			]);
+		}
 	}
 
 
@@ -885,22 +884,22 @@ class Page extends RawPage {
 		$osmium = \Osmium\get_ini_setting('name');
 		$ul = $nav->appendCreate('ul');
 		$ul->append([
-			$this->makeNavigationLink('/', $osmium, $osmium, 'Go to the home page'),
-			$this->makeNavigationLink('/new', 'Create loadout', 'Create', 'Create a new fitting'),
-			$this->makeNavigationLink('/import', 'Import', 'Import',
-			                          'Import one or more fittings from various formats'),
-			$this->makeNavigationLink('/convert', 'Convert', 'Convert',
-			                          'Quickly convert fittings from one format to another'),
+			$this->makeNavigationLink('/', $osmium, $osmium, _('Go to the home page')),
+			$this->makeNavigationLink('/new', _('Create loadout'), _('Create'), _('Create a new fitting')),
+			$this->makeNavigationLink('/import', _('Import'), _('Import'),
+			                          _('Import one or more fittings from various formats')),
+			$this->makeNavigationLink('/convert', _('Convert'), _('Convert'),
+			                          _('Quickly convert fittings from one format to another')),
 		]);
 
 		if(\Osmium\State\is_logged_in()) {
-			$ul->append($this->makeNavigationLink('/settings', 'Settings'));
+			$ul->append($this->makeNavigationLink('/settings', _('Settings')));
 
 			$a = \Osmium\State\get_state('a');
 			if(isset($a['ismoderator']) && $a['ismoderator'] === 't') {
 				$ul->append($this->makeNavigationLink(
 					'/moderation',
-					\Osmium\Flag\MODERATOR_SYMBOL.'Moderation',
+					\Osmium\Flag\MODERATOR_SYMBOL._('Moderation'),
 					\Osmium\Flag\MODERATOR_SYMBOL
 				));
 			}
@@ -978,17 +977,17 @@ class Page extends RawPage {
 					'id' => 'ncount',
 					'data-count' => (string)$ncount,
 					'o-rel-href' => '/notifications',
-					'title' => $ncount.' new notification(s)',
+					'title' => $ncount._(' new notification(s)'),
 					(string)$ncount
 				]],
 				' ',
-				[ 'o-state-altering-a', [ 'o-rel-href' => '/internal/logout', 'Sign out' ] ],
+				[ 'o-state-altering-a', [ 'o-rel-href' => '/internal/logout', _('Sign out') ] ],
 				' ',
 				[ 'small', [
 					'(',
 					[ 'o-state-altering-a', [
 						'o-rel-href' => '/internal/logout'.self::formatQueryString([ 'global' => '1' ]),
-						'title' => 'Terminate all my sessions, even on other computers or browsers',
+						'title' => _('Terminate all my sessions, even on other computers or browsers'),
 						'all',
 					]],
 					')',
@@ -1003,7 +1002,7 @@ class Page extends RawPage {
 			]), 'Sign in' ]);
 
 			if(\Osmium\get_ini_setting('registration_enabled')) {
-				$reglink = [ 'a', [ 'o-rel-href' => '/register', [ 'strong', 'Sign up' ] ] ];
+				$reglink = [ 'a', [ 'o-rel-href' => '/register', [ 'strong', _('Sign up') ] ] ];
 				$p->append([ ' or ', $reglink ]);
 			}
 		}

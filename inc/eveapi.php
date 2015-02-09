@@ -22,7 +22,7 @@ namespace Osmium\EveApi;
 
 /* Change this if you want to use an API proxy. BEWARE: whoever
  * controls the proxy will be able to impersonate any character. */
-const API_ROOT = 'https://api.eve-online.com.cn';
+define("EVE_API_ROOT", \Osmium\get_ini_setting("eve_api_url", "https://api.eveonline.com"));
 
 /* Set a default timeout of 5 seconds for API calls. Higher values can
  * mean longer login times if the API server is busy. */
@@ -131,7 +131,7 @@ function fetch($name, array $params, $timeout = null, &$errortype = null, &$erro
 
 	if($timeout === null) $timeout = DEFAULT_API_TIMEOUT;
 
-	$c = \Osmium\curl_init_branded(API_ROOT.$name);
+	$c = \Osmium\curl_init_branded(EVE_API_ROOT.$name);
 	curl_setopt($c, CURLOPT_POST, true);
 	curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($c, CURLOPT_CAINFO, \Osmium\ROOT.'/ext/ca/GeoTrustGlobalCA.pem');
