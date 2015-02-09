@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 03:08+0800\n"
-"PO-Revision-Date: 2015-02-10 03:08+0800\n"
+"POT-Creation-Date: 2015-02-10 03:21+0800\n"
+"PO-Revision-Date: 2015-02-10 03:22+0800\n"
 "Last-Translator: CopyLiu <copyliu@gmail.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -159,6 +159,10 @@ msgstr "注册"
 msgid "Sign up"
 msgstr "注册"
 
+#: inc/dom-chrome.php:1006
+msgid " or "
+msgstr " 或 "
+
 #: inc/dom-formatter-loadout.php:203
 msgid "(no tags)"
 msgstr "(没有标签)"
@@ -298,6 +302,10 @@ msgstr "在线用户"
 #: src/main.php:104
 msgid "Common tags"
 msgstr "常见标签"
+
+#: src/main.php:133
+msgid "New fits "
+msgstr "新装配"
 
 #: src/main.php:152 src/main.php:181
 msgid "No loadouts yet! What are you waiting for?"

@@ -130,7 +130,7 @@ $maincont->append($p->fragment(get_cache_memory_or_gen(
 	'new_fits_'.$a['accountid'], 601, function() use($p) {
 		$section = $p->element('section', [ 'class' => 'newfits' ]);
 		$section->appendCreate('h2', [
-			'New fits ',
+			_('New fits '),
 			[ 'small', [
 				[ 'a', [
 					'o-rel-href' => '/atom/newfits.xml',
