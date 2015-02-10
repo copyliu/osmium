@@ -215,7 +215,7 @@ trait Formatter {
 	/* Format <b>, <u>, <a href=showinfo> and <url=showinfo> tags. */
 	function formatCCPTagSoup($text) {
 		$pieces = preg_split(
-			'%(<a href=showinfo:([1-9][0-9]*)(?:// ?[1-9][0-9]*)?>|</a>|<url=showinfo:([1-9][0-9]*)(?:// ?[1-9][0-9]*)?>|</url>)%',
+			'%(<a href="?showinfo:([1-9][0-9]*)(?:// ?[1-9][0-9]*)?"?>|</a>|<url="?showinfo:([1-9][0-9]*)(?:// ?[1-9][0-9]*)?"?>|</url>)%',
 			$text,
 			-1,
 			PREG_SPLIT_DELIM_CAPTURE
