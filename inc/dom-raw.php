@@ -270,7 +270,7 @@ class RawPage extends Document {
 			while($e->attributes->length > 0) {
 				$attr = $e->attributes->item(0);
 				if($attr->name === 'src') {
-					$attr->value = '//image.eveonline.com'.$attr->value;
+					$attr->value = '//'.\Osmium\get_ini_setting('eve_iec_domain', 'image.eveonline.com').$attr->value;
 				}
 
 				$i->setAttributeNode($attr);
