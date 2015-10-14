@@ -296,19 +296,18 @@ class Page extends RawPage {
 		$ecf = escapeshellarg($out);
 		$ecmf = escapeshellarg($minout);
 
-		shell_exec($cmd = 'cat '.$snippets.' > '.$ecf);
-
+		if (\Osmium\get_ini_setting("serenity_patch")){
+			$sed_command = 'sed "s/image\\.eveonline\\.com/'.\Osmium\EVE_IEC.'/g"';
+			shell_exec($cmd = 'cat '.$snippets.' | '.$sed_command.' > '.$ecf);
+		}
+		else{
+			shell_exec($cmd = 'cat '.$snippets.' > '.$ecf);
+		}
 		if($min = \Osmium\get_ini_setting('minify_js')) {
 			$command = \Osmium\get_ini_setting('minify_command');
 
 			/* Concatenate & minify */
-			if (\Osmium\get_ini_setting("serenity_patch")){
-				$sed_command = 'sed "s/image\\.eveonline\\.com/'.\Osmium\EVE_IEC.'/g"';
-				shell_exec('cat '.$ecf.' | '.$sed_command.' | '.$command.' > '.$ecmf);
-			}
-			else{
-				shell_exec('cat '.$ecf.' | '.$command.' > '.$ecmf);
-			}
+			shell_exec('cat '.$ecf.' | '.$command.' > '.$ecmf);
 		}
 
 		clearstatcache(true, $minout);
