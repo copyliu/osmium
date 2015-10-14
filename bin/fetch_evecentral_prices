@@ -61,7 +61,7 @@ while(true) {
 	curl_setopt(
 		$c,
 		CURLOPT_URL,
-		'https://'.\Osmium\get_ini_setting("serenity_patch")?\Osmium\get_ini_setting("serenity_market"):"www.eve-central.com".'/api/marketstat?hours=168&'.implode('&', $ids)
+		'https://'.(\Osmium\get_ini_setting("serenity_patch")?\Osmium\get_ini_setting("serenity_market"):"www.eve-central.com").'/api/marketstat?hours=168&'.implode('&', $ids)
 	);
 
 	$reply = curl_exec($c);
