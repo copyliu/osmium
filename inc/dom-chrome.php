@@ -297,7 +297,7 @@ class Page extends RawPage {
 		$ecmf = escapeshellarg($minout);
 
 		if (\Osmium\get_ini_setting("serenity_patch")){
-			$sed_command = 'sed "s/image\\.eveonline\\.com/'.\Osmium\EVE_IEC.'/g"';
+			$sed_command = 'sed "s/image\\.eveonline\\.com/'.\Osmium\EVE_IEC.'/g;s/cdnjs\\.cloudflare\\.com/'.\Osmium\CLOUDFLARE_JSCDN.'/g"';
 			shell_exec($cmd = 'cat '.$snippets.' | '.$sed_command.' > '.$ecf);
 		}
 		else{
