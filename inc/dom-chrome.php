@@ -35,12 +35,12 @@ class Page extends RawPage {
 		'style-src' => [
 			"'self'",
 			"'unsafe-inline'",
-			'//fonts.googleapis.com',
-			'//cdnjs.cloudflare.com',
+			'//'.\Osmium\GOOGLE_FONT_API,
+			'//'.\Osmium\CLOUDFLARE_JSCDN,
 		],
-		'font-src' => [ '//fonts.gstatic.com' ],
-		'img-src' => [ "'self'", '//image.eveonline.com' ],
-		'script-src' => [ "'self'", '//cdnjs.cloudflare.com' ],
+		'font-src' => [ '//'.\Osmium\GOOGLE_STATIC ],
+		'img-src' => [ "'self'", '//'.\Osmium\EVE_IEC ],
+		'script-src' => [ "'self'", '//'.\Osmium\CLOUDFLARE_JSCDN ],
 		'connect-src' => [ "'self'" ],
 	];
 
@@ -302,7 +302,13 @@ class Page extends RawPage {
 			$command = \Osmium\get_ini_setting('minify_command');
 
 			/* Concatenate & minify */
-			shell_exec('cat '.$ecf.' | '.$command.' > '.$ecmf);
+			if (\Osmium\get_ini_setting("serenity_patch")){
+				$sed_command = 'sed "s/image\\.eveonline\\.com/'.\Osmium\EVE_IEC.'/g"';
+				shell_exec('cat '.$ecf.' | '.$sed_command.' | '.$command.' > '.$ecmf);
+			}
+			else{
+				shell_exec('cat '.$ecf.' | '.$command.' > '.$ecmf);
+			}
 		}
 
 		clearstatcache(true, $minout);

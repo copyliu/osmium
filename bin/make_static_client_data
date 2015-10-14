@@ -376,19 +376,19 @@ $static['dmgprofiles'] = array(
 	/* Data "stolen" from http://wiki.eveuniversity.org/NPC_Damage_Types */
 	'Factions' => array(
 		/* Pirate factions */
-		'Angel Cartel' => [ .07, .62, .22, .9, "//image.eveonline.com/Alliance/500011_128.png" ],
-		'Blood Raiders' => [ .50, .0, .02, .48, "//image.eveonline.com/Alliance/500012_128.png" ],
-		'Guristas' => [ .02, .01, .79, .18, "//image.eveonline.com/Alliance/500010_128.png" ],
-		'Mordu\'s Legion' => [ .0, .0, .70, .30, "//image.eveonline.com/Alliance/500018_128.png" ],
-		'Sansha\'s Nation' => [ .53, .0, .0, .47, "//image.eveonline.com/Alliance/500019_128.png" ],
-		'Serpentis' => [ .0, .0, .55, .45, "//image.eveonline.com/Alliance/500020_128.png" ],
+		'Angel Cartel' => [ .07, .62, .22, .9, "//".\Osmium\EVE_IMG."/Alliance/500011_128.png" ],
+		'Blood Raiders' => [ .50, .0, .02, .48, "//".\Osmium\EVE_IMG."/Alliance/500012_128.png" ],
+		'Guristas' => [ .02, .01, .79, .18, "//".\Osmium\EVE_IMG."/Alliance/500010_128.png" ],
+		'Mordu\'s Legion' => [ .0, .0, .70, .30, "//".\Osmium\EVE_IMG."/Alliance/500018_128.png" ],
+		'Sansha\'s Nation' => [ .53, .0, .0, .47, "//".\Osmium\EVE_IMG."/Alliance/500019_128.png" ],
+		'Serpentis' => [ .0, .0, .55, .45, "//".\Osmium\EVE_IMG."/Alliance/500020_128.png" ],
 
 		/* Empire factions */
-		'CONCORD' => [ .29, .30, .37, .32, "//image.eveonline.com/Alliance/500006_128.png" ],
-		'Amarr Empire' => [ .47, .04, .07, .42, "//image.eveonline.com/Alliance/500003_128.png" ],
-		'Caldari State' => [ .01, .0, .51, .48, "//image.eveonline.com/Alliance/500001_128.png" ],
-		'Gallente Federation' => [ .01, .0, .60, .39, "//image.eveonline.com/Alliance/500004_128.png" ],
-		'Minmatar Republic' => [ .12, .50, .31, .07, "//image.eveonline.com/Alliance/500002_128.png" ],
+		'CONCORD' => [ .29, .30, .37, .32, "//".\Osmium\EVE_IMG."/Alliance/500006_128.png" ],
+		'Amarr Empire' => [ .47, .04, .07, .42, "//".\Osmium\EVE_IMG."/Alliance/500003_128.png" ],
+		'Caldari State' => [ .01, .0, .51, .48, "//".\Osmium\EVE_IMG."/Alliance/500001_128.png" ],
+		'Gallente Federation' => [ .01, .0, .60, .39, "//".\Osmium\EVE_IMG."/Alliance/500004_128.png" ],
+		'Minmatar Republic' => [ .12, .50, .31, .07, "//".\Osmium\EVE_IMG."/Alliance/500002_128.png" ],
 	),
 );
 
@@ -428,7 +428,7 @@ while($row = \Osmium\Db\fetch_row($ammoq)) {
 
 	$static['dmgprofiles'][$basegroup[$mid]][$name] = [
 		$em, $ex, $ki, $th,
-		'//image.eveonline.com/Type/'.$tid.'_64.png'
+		'//'.\Osmium\EVE_IEC.'/Type/'.$tid.'_64.png'
 	];
 }
 
@@ -468,7 +468,23 @@ while($r = \Osmium\Db\fetch_row($sideeffectsq)) {
 $smq = \Osmium\Db\query('SELECT typeid, typename FROM eve.invtypes WHERE groupid = 1306');
 while($modifier = \Osmium\Db\fetch_row($smq)) {
 	/* XXX, for obvious reasons */
-	if(!preg_match('%^(?<ship>.+) (?<mode>(Defense|Propulsion|Sharpshooter) Mode)$%', $modifier[1], $match)) {
+	if(\Osmium\get_ini_setting("serenity_patch")){
+		if(!preg_match('%^(?<ship>.+)(?<mode>(防御|高速|狙击)模式)$%', $modifier[1], $match)) {
+			die('Ship modifier has weird type name: '.$modifier[0].' '.$modifier[1]."\n");
+		}
+		switch  ($modifier[1]){
+			case "防御":
+				$modifier[1]="Defense";
+				break;
+			case "高速":
+				$modifier[1]="Propulsion";
+				break;
+			case "狙击":
+				$modifier[1]="Sharpshooter";
+				break;
+		}
+	}
+	else if(!preg_match('%^(?<ship>.+) (?<mode>(Defense|Propulsion|Sharpshooter) Mode)$%', $modifier[1], $match)) {
 		die('Ship modifier has weird type name: '.$modifier[0].' '.$modifier[1]."\n");
 	}
 

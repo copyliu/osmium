@@ -113,7 +113,7 @@ function export_to_svg($fit, $embedclf = true){
 	$g = $svg->appendCreate('g#bg');
 
 	$g->appendCreate('image', [
-		'x:href' => '//image.eveonline.com/Render/'.$fit['ship']['typeid'].'_512.png',
+		'x:href' => '//'.\Osmium\EVE_IEC.'/Render/'.$fit['ship']['typeid'].'_512.png',
 		'x' => '0',
 		'y' => '-7.5',
 		'width' => '40',
@@ -170,7 +170,7 @@ function svg_gen_header($fit, \Osmium\DOM\Document $d) {
 	]);
 
 	$a->appendCreate('image', [
-		'x:href' => '//image.eveonline.com/Render/'.$fit['ship']['typeid'].'_512.png',
+		'x:href' => '//'.\Osmium\EVE_IEC.'/Render/'.$fit['ship']['typeid'].'_512.png',
 		'x' => '0',
 		'y' => '0',
 		'width' => '5',
@@ -268,7 +268,7 @@ function svg_gen_modules($fit, \Osmium\DOM\Document $d) {
 			]);
 
 			$a->appendCreate('image.m', [
-				'x:href' => '//image.eveonline.com/Type/'.$m['typeid'].'_64.png',
+				'x:href' => '//'.\Osmium\EVE_IEC.'/Type/'.$m['typeid'].'_64.png',
 				'width' => (string)($typeiconratio * $r),
 				'height' => (string)($typeiconratio * $r),
 				'x' => (string)((2 - $typeiconratio) * .5 * $r),
@@ -288,7 +288,7 @@ function svg_gen_modules($fit, \Osmium\DOM\Document $d) {
 				]);
 
 				$a->appendCreate('image.c', [
-					'x:href' => '//image.eveonline.com/Type/'.$c['typeid'].'_64.png',
+					'x:href' => '//'.\Osmium\EVE_IEC.'/Type/'.$c['typeid'].'_64.png',
 					'width' => (string)($typeiconratio * $r * .5),
 					'height' => (string)($typeiconratio * $r * .5),
 					'x' => (string)((2 - $typeiconratio) * .5 * $r + .625 * $r * $typeiconratio),
@@ -409,7 +409,7 @@ function svg_gen_other($fit, \Osmium\DOM\Document $d) {
 		]);
 
 		$a->appendCreate('image.m', [
-			'x:href' => '//image.eveonline.com/Type/'.$m['typeid'].'_64.png',
+			'x:href' => '//'.\Osmium\EVE_IEC.'/Type/'.$m['typeid'].'_64.png',
 			'width' => (string)$side,
 			'height' => (string)$side,
 		]);
@@ -442,7 +442,7 @@ function svg_gen_other($fit, \Osmium\DOM\Document $d) {
 		]);
 
 		$a->appendCreate('image.m', [
-			'x:href' => '//image.eveonline.com/Type/'.$m['typeid'].'_64.png',
+			'x:href' => '//'.\Osmium\EVE_IEC.'/Type/'.$m['typeid'].'_64.png',
 			'width' => (string)$side,
 			'height' => (string)$side,
 		]);
@@ -474,7 +474,7 @@ function svg_gen_other($fit, \Osmium\DOM\Document $d) {
 			]);
 
 			$a->appendCreate('image.m', [
-				'x:href' => '//image.eveonline.com/Type/'.$typeid.'_64.png',
+				'x:href' => '//'.\Osmium\EVE_IEC.'/Type/'.$typeid.'_64.png',
 				'width' => (string)$side,
 				'height' => (string)$side,
 			]);
@@ -494,7 +494,7 @@ function svg_gen_other($fit, \Osmium\DOM\Document $d) {
 		]);
 
 		$a->appendCreate('image.m', [
-			'x:href' => '//image.eveonline.com/Type/'.$i['typeid'].'_64.png',
+			'x:href' => '//'.\Osmium\EVE_IEC.'/Type/'.$i['typeid'].'_64.png',
 			'width' => (string)$side,
 			'height' => (string)$side,
 		]);

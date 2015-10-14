@@ -93,6 +93,16 @@ define(__NAMESPACE__.'\COOKIE_HOST',
        isset($_SERVER['HTTP_HOST']) ? explode(':', $_SERVER['HTTP_HOST'], 2)[0] : '127.0.0.1'
 );
 
+define(__NAMESPACE__.'\EVE_IEC', get_ini_setting("serenity_patch") ? get_ini_setting("serenity_iec") : "image.eveonline.com");
+
+define(__NAMESPACE__.'\EVE_IMG', get_ini_setting("serenity_patch") ? get_ini_setting("serenity_img") : "image.eveonline.com");
+
+define(__NAMESPACE__.'\GOOGLE_FONT_API',get_ini_setting("serenity_patch")?get_ini_setting("china_googleapi"):"fonts.googleapis.com");
+
+define(__NAMESPACE__.'\CLOUDFLARE_JSCDN',get_ini_setting("serenity_patch")?get_ini_setting("china_jscdn"):"cdnjs.cloudflare.com");
+
+define(__NAMESPACE__.'\GOOGLE_STATIC',get_ini_setting("serenity_patch")?get_ini_setting("china_gstatic"):"fonts.gstatic.com");
+
 if(!is_dir(CACHE_DIRECTORY) || !is_writeable(CACHE_DIRECTORY)) {
 	fatal(500, "Cache directory <code>'".CACHE_DIRECTORY."'</code> is not writeable.");
 }
