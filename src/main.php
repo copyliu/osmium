@@ -194,11 +194,18 @@ $maincont->append($p->fragment(get_cache_memory_or_gen(
 
 $maincont->append($p->fragment(get_cache_memory_or_gen('fotw', 603, function() use($p) {
 	$section = $p->element('section', [ 'class' => 'fotw' ]);
-	$section->appendCreate('h2', [
-		'Flavors of the week ',
-		[ 'small', [ 'data from ', [ 'a', [ 'href' => 'https://eve-kill.com/', 'Eve-Kill' ] ] ] ],
-	]);
-
+	if (\Osmium\get_ini_setting("serenity_patch")){
+		$section->appendCreate('h2', [
+			'Flavors of the week ',
+			[ 'small', [ 'data from ', [ 'a', [ 'href' => 'https://kb.ceve-market.org/', '市场机击杀榜 - 伊甸荒塚' ] ] ] ],
+		]);
+	}
+	else{
+		$section->appendCreate('h2', [
+			'Flavors of the week ',
+			['small', ['data from ', ['a', ['href' => 'https://eve-kill.com/', 'Eve-Kill']]]],
+		]);
+	}
 	$topkills = \Osmium\State\get_cache('top_kills', null);
 	if($topkills === null || $topkills['fotw'] === []) {
 		return '';
