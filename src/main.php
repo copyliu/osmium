@@ -197,7 +197,7 @@ $maincont->append($p->fragment(get_cache_memory_or_gen('fotw', 603, function() u
 	if (\Osmium\get_ini_setting("serenity_patch")){
 		$section->appendCreate('h2', [
 			'Flavors of the week ',
-			[ 'small', [ 'data from ', [ 'a', [ 'href' => 'https://kb.ceve-market.org/', '市场机击杀榜 - 伊甸荒塚' ] ] ] ],
+			[ 'small', [ 'data from ', [ 'a', [ 'href' => 'http://kb.ceve-market.org/', '市场机击杀榜 - 伊甸荒塚' ] ] ] ],
 		]);
 	}
 	else{
@@ -253,7 +253,7 @@ $maincont->append($p->fragment(get_cache_memory_or_gen('doctrines', 604, functio
 	if (\Osmium\get_ini_setting("serenity_patch")){
 		$section->appendCreate('h2', [
 			'Popular alliance doctrines ',
-			[ 'small', [ 'data from ', [ 'a', [ 'href' => 'https://kb.ceve-market.org/', '市场机击杀榜 - 伊甸荒塚' ] ] ] ],
+			[ 'small', [ 'data from ', [ 'a', [ 'href' => 'http://kb.ceve-market.org/', '市场机击杀榜 - 伊甸荒塚' ] ] ] ],
 		]);
 	}
 	else{
