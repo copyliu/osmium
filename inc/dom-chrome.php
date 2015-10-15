@@ -39,7 +39,7 @@ class Page extends RawPage {
 			'//'.\Osmium\CLOUDFLARE_JSCDN,
 		],
 		'font-src' => [ '//'.\Osmium\GOOGLE_STATIC ],
-		'img-src' => [ "'self'", '//'.\Osmium\EVE_IEC ],
+		'img-src' => [ "'self'", '//'.\Osmium\EVE_IEC, '//'.\Osmium\EVE_IMG ],
 		'script-src' => [ "'self'", '//'.\Osmium\CLOUDFLARE_JSCDN ],
 		'connect-src' => [ "'self'" ],
 	];
