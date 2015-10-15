@@ -250,10 +250,18 @@ $maincont->append($p->fragment(get_cache_memory_or_gen('fotw', 603, function() u
 
 $maincont->append($p->fragment(get_cache_memory_or_gen('doctrines', 604, function() use($p) {
 	$section = $p->element('section', [ 'class' => 'doctrines' ]);
-	$section->appendCreate('h2', [
-		'Popular alliance doctrines ',
-		[ 'small', [ 'data from ', [ 'a', [ 'href' => 'https://eve-kill.com/', 'Eve-Kill' ] ] ] ],
-	]);
+	if (\Osmium\get_ini_setting("serenity_patch")){
+		$section->appendCreate('h2', [
+			'Popular alliance doctrines ',
+			[ 'small', [ 'data from ', [ 'a', [ 'href' => 'https://kb.ceve-market.org/', '市场机击杀榜 - 伊甸荒塚' ] ] ] ],
+		]);
+	}
+	else{
+		$section->appendCreate('h2', [
+			'Popular alliance doctrines ',
+			['small', ['data from ', ['a', ['href' => 'https://eve-kill.com/', 'Eve-Kill']]]],
+		]);
+	}
 
 	$topkills = \Osmium\State\get_cache('top_kills', null);
 	if($topkills === null || $topkills['doctrine'] === []) {
