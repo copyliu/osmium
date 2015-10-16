@@ -873,7 +873,7 @@ class Page extends RawPage {
 		$ul = $nav->appendCreate('ul');
 		$ul->append([
 			$this->makeNavigationLink('/', $osmium, $osmium, 'Go to the home page'),
-			$this->makeNavigationLink('/new', 'Create loadout', 'Create', 'Create a new fitting'),
+			$this->makeNavigationLink('/new#browse', 'Create loadout', 'Create', 'Create a new fitting'),
 			$this->makeNavigationLink('/import', 'Import', 'Import',
 			                          'Import one or more fittings from various formats'),
 			$this->makeNavigationLink('/convert', 'Convert', 'Convert',
