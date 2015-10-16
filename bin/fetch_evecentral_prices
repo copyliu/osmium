@@ -22,7 +22,7 @@ namespace Osmium\CLI\FetchEveCentralPrices;
 require __DIR__.'/../inc/root.php';
 
 if($argc === 4) {
-	list(, $modtotal, $modcurrent, $$ndays) = $argv;
+	list(, $modtotal, $modcurrent, $ndays) = $argv;
 } else {
 	$modcurrent = 0;
 	$modtotal = 1;
