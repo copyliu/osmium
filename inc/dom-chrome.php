@@ -912,8 +912,8 @@ class Page extends RawPage {
 		$full = $this->element('span', [ 'class' => 'full',  $label ]);
 		$mini = $this->element('span', [ 'class' => 'mini', $shortlabel ]);
 		if ($i18ntag !== null){
-			$full->attr('data-i18n', $i18ntag.".full");
-			$mini->attr('data-i18n', $i18ntag.".mini");
+			$full->attr('data-i18n', 'nav:'.$i18ntag.".full");
+			$mini->attr('data-i18n', 'nav:'.$i18ntag.".mini");
 		}
 
 		if($title !== null) {
@@ -977,14 +977,14 @@ class Page extends RawPage {
 					(string)$ncount
 				]],
 				' ',
-				[ 'o-state-altering-a', [ 'o-rel-href' => '/internal/logout', 'data-i18n'=>'signout', 'Sign out' ] ],
+				[ 'o-state-altering-a', [ 'o-rel-href' => '/internal/logout', 'data-i18n'=>'nav:signout', 'Sign out' ] ],
 				' ',
 				[ 'small', [
 					'(',
 					[ 'o-state-altering-a', [
 						'o-rel-href' => '/internal/logout'.self::formatQueryString([ 'global' => '1' ]),
 						'title' => 'Terminate all my sessions, even on other computers or browsers',
-						'all', 'data-i18n'=>'signoutall'
+						'all', 'data-i18n'=>'nav:signoutall'
 					]],
 					')',
 				]],
@@ -995,10 +995,10 @@ class Page extends RawPage {
 			$p = $div->appendCreate('p');
 			$p->appendCreate('a', [ 'o-rel-href' => '/login'.$this->formatQueryString([
 				'r' => $_SERVER['REQUEST_URI'],
-			] ),'data-i18n' => 'signin', 'Sign in' ]);
+			] ),'data-i18n' => 'nav:signin', 'Sign in' ]);
 
 			if(\Osmium\get_ini_setting('registration_enabled')) {
-				$reglink = [ 'a', [ 'o-rel-href' => '/register', 'data-i18n' => 'signup',[ 'strong', 'Sign up' ] ] ];
+				$reglink = [ 'a', [ 'o-rel-href' => '/register', 'data-i18n' => 'nav:signup',[ 'strong', 'Sign up' ] ] ];
 				$p->append([ ' or ', $reglink ]);
 			}
 		}
