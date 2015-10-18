@@ -280,9 +280,9 @@ $nla->appendCreate('section#attributes')->appendCreate('div.compact#computed_att
 
 $nls = $p->content->appendCreate('div#nlsources');
 $ul = $nls->appendCreate('ul.tabs');
-$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#search', 'Search' ]);
-$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#browse', 'Browse' ]);
-$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#shortlist', 'Shortlist' ]);
+$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#search', 'Search', "data-i18n" => "search"  ]);
+$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#browse', 'Browse', "data-i18n" => "browse"  ]);
+$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#shortlist', 'Shortlist', "data-i18n" => "shortlist"  ]);
 
 $searchexamples = array(
 	/* Module synonyms */
@@ -333,13 +333,13 @@ $section->appendCreate('ul.filters');
 
 $nlm = $p->content->appendCreate('div#nlmain');
 $ul = $nlm->appendCreate('ul.tabs');
-$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#modules', 'Modules & Charges' ]);
-$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#drones', 'Drones' ]);
-$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#implants', 'Implants & Boosters' ]);
-$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#remote', 'Fleet & Projected' ]);
-$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#area', 'Area' ]);
-$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#presets', 'Presets' ]);
-$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#metadata', 'Metadata' ]);
+$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#modules', 'Modules & Charges' ,"data-i18n"=>"modules"]);
+$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#drones', 'Drones' ,"data-i18n"=>"drones"]);
+$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#implants', 'Implants & Boosters' ,"data-i18n"=>"implants"]);
+$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#remote', 'Fleet & Projected' ,"data-i18n"=>"remote"]);
+$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#area', 'Area' ,"data-i18n"=>"area"]);
+$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#presets', 'Presets' ,"data-i18n"=>"presets"]);
+$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#metadata', 'Metadata' ,"data-i18n"=>"metadata"]);
 
 $section = $nlm->appendCreate('section#modules');
 foreach(\Osmium\Fit\get_slottypes() as $type => $tdata) {

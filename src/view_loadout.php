@@ -389,7 +389,7 @@ if($latestdbver['dogmaver'] - $intendeddbver['dogmaver'] > 1) {
 }
 
 $tabsul = $div->appendCreate('ul.tabs');
-$tabsul->appendCreate('li')->appendCreate('a', [ 'href' => '#loadout', 'Loadout' ]);
+$tabsul->appendCreate('li')->appendCreate('a', [ 'href' => '#loadout', 'Loadout' , "data-i18n" => "loadout" ]);
 
 if($maxrev !== false && $historyuri !== false && $maxrev > 1) {
 	$tabsul->prepend($p->element('li.external')->append([[ 'a', [
@@ -813,7 +813,7 @@ $tabsul->appendCreate('li')->appendCreate('a', [ 'href' => '#comments', 'Comment
 /* Pretty prints permissions, show actions, moderator actions, export
  * and share links. */
 require __DIR__.'/../inc/view_loadout-meta.php';
-$tabsul->appendCreate('li')->appendCreate('a', [ 'href' => '#meta', 'Meta' ]);
+$tabsul->appendCreate('li')->appendCreate('a', [ 'href' => '#meta', 'Meta', "data-i18n" => "meta" ]);
 
 
 
