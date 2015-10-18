@@ -176,7 +176,7 @@ $p->canonical = $canonicaluri;
 
 $dna = \Osmium\Fit\export_to_dna($fit);
 
-$h1 = $p->content->appendCreate('h1#vltitle', 'Viewing loadout: ');
+$h1 = $p->content->appendCreate('h1#vltitle', ['Viewing loadout: ', "data-i18n" => "viewing" ]);
 $h1->appendCreate('strong.fitname')->appendCreate(
 	'a', [ 'data-ccpdna' => $dna, $fit['metadata']['name'] ]
 );
@@ -200,7 +200,7 @@ if(count($fit['metadata']['tags']) > 0 || $canretag) {
 	}
 
 	if($canretag) {
-		$ul->appendCreate('li.retag')->appendCreate('a')->appendCreate('small', '✎ Edit tags');
+		$ul->appendCreate('li.retag')->appendCreate('a')->appendCreate('small', ['✎ Edit tags', "data-i18n" => "edittag" ]);
 	}
 }
 
@@ -329,7 +329,7 @@ if($loadoutid !== false) {
 
 	if($fit['metadata']['revision'] > 1) {
 		$editdiv = $section->appendCreate('div.author.edit');
-		$editdiv->appendCreate('small', 'revision #'.$fit['metadata']['revision'].' edited by');
+		$editdiv->appendCreate('small', ['revision #'.$fit['metadata']['revision'].' edited by', "data-i18n" => "revision","data-i18n-options" => "{\"ver\":".$fit['metadata']['revision']."}" ]);
 		$editdiv->appendCreate('br');
 		$editdiv->append($p->makeAccountLink($lastrev))
 			->appendCreate('br');
@@ -394,14 +394,14 @@ if($maxrev !== false && $historyuri !== false && $maxrev > 1) {
 	$tabsul->prepend($p->element('li.external')->append([[ 'a', [
 		'o-rel-href' => $historyuri,
 		'title' => 'View different revisions of this loadout, and compare changes',
-		'History ('.($maxrev - 1).')',
+		'History ('.($maxrev - 1).')',  "data-i18n" => "history" , "data-i18n-options" => "{\"ver\":".($maxrev-1)."}"
 	]]]));
 }
 
 $tabsul->prepend($p->element('li.external')->append([[ 'o-state-altering-a', [
 	'o-rel-href' => $forkuri,
 	'title' => 'Make a copy of this loadout and start editing it',
-	'Fork',
+	'Fork', "data-i18n" => "fork" ,
 ]]]));
 
 if($can_edit) {
@@ -415,7 +415,7 @@ if($can_edit) {
 
 	$tabsul->prepend($p->element('li.external')->append([[ 'o-state-altering-a', [
 		'o-rel-href' => '/internal/edit/'.$loadoutid.$p->formatQueryString($editparams),
-		'Edit',
+		'Edit', "data-i18n" => "edit" ,
 	]]]));
 }
 
@@ -778,7 +778,12 @@ if(count($fit['presets']) > 1
 		}
 
 		$tabsul->appendCreate('li')->appendCreate('a', [
-			'href' => '#presets',
+			'href' => '#presets', "data-i18n" => "presets", "data-i18n-options"=>
+				"{\"c\":".max(
+					count($fit['presets']),
+					count($fit['chargepresets']),
+					count($fit['dronepresets'])
+				)."}",
 			'Presets ('.max(
 				count($fit['presets']),
 				count($fit['chargepresets']),
@@ -791,7 +796,8 @@ if(count($fit['presets']) > 1
 if((isset($fit['fleet']) && $fit['fleet'] !== []) || (isset($fit['remote']) && $fit['remote'] !== [])) {
 	$div->append($p->makeRemoteSection($fit, true));
 	$tabsul->appendCreate('li')->appendCreate('a', [
-		'href' => '#remote',
+		'href' => '#remote', "data-i18n" => "remote" ,
+		"data-i18n-options"=>"{\"f\":".(isset($fit['fleet']) ? count($fit['fleet']) : 0).",\"r\":".(isset($fit['remote']) ? count($fit['remote']) : 0)."}",
 		'Fleet ('.(isset($fit['fleet']) ? count($fit['fleet']) : 0)
 		.') & Projected ('.(isset($fit['remote']) ? count($fit['remote']) : 0).')',
 	]);

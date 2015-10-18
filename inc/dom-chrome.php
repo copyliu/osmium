@@ -614,6 +614,7 @@ class Page extends RawPage {
 		} else {
 			/* Simple search mode, show a link to advanced mode and nothing else */
 			$label->append(($mode === self::MSB_SEARCH ? 'Search' : 'Filter').' loadouts');
+			$label->attr('data-i18n','main:'.($mode === self::MSB_SEARCH ? 'search' : 'filter').'_loadouts');
 			/* XXX: get_search_cond_from_advanced() will set some
 			 * default values in $_GET. Ugly side effect, get rid of
 			 * this ASAP. */
@@ -621,8 +622,7 @@ class Page extends RawPage {
 
 			$p->appendCreate('small', [
 				[ 'a', [ 'href' => self::formatQueryString($_GET, [ 'ad' => 1 ]),
-						 'Advanced '.($mode === self::MSB_SEARCH ? 'search' : 'filters'),
-						"data-i18n" => 'main:'.($mode === self::MSB_SEARCH ? 'search' : 'filter').'_loadouts'  ] ],
+						 'Advanced '.($mode === self::MSB_SEARCH ? 'search' : 'filters') ] ],
 				' — ',
 				[ 'a', [ 'o-rel-href' => '/help/search', 'Help' ] ],
 			]);
