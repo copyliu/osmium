@@ -872,20 +872,20 @@ class Page extends RawPage {
 		$osmium = \Osmium\get_ini_setting('name');
 		$ul = $nav->appendCreate('ul');
 		$ul->append([
-			$this->makeNavigationLink('/', $osmium, $osmium, 'Go to the home page'),
-			$this->makeNavigationLink('/new#browse', 'Create loadout', 'Create', 'Create a new fitting'),
+			$this->makeNavigationLink('/', $osmium, $osmium, 'Go to the home page', 'home'),
+			$this->makeNavigationLink('/new#browse', 'Create loadout', 'Create', 'Create a new fitting', 'create'),
 			$this->makeNavigationLink('/import', 'Import', 'Import',
-			                          'Import one or more fittings from various formats'),
+			                          'Import one or more fittings from various formats' ,'import'),
 			$this->makeNavigationLink('/convert', 'Convert', 'Convert',
-			                          'Quickly convert fittings from one format to another'),
+			                          'Quickly convert fittings from one format to another', 'convert'),
 			$this->makeNavigationLink('/browse/best', 'Browse loadouts', 'Loadouts',
-			                          'Browse the loadouts most rated by the community'),
+			                          'Browse the loadouts most rated by the community', 'browse'),
 			$this->makeNavigationLink('/db', 'Browse types', 'Types',
-			                          'Browse and compare types (items) from the game database'),
+			                          'Browse and compare types (items) from the game database', 'type'),
 		]);
 
 		if(\Osmium\State\is_logged_in()) {
-			$ul->append($this->makeNavigationLink('/settings', 'Settings'));
+			$ul->append($this->makeNavigationLink('/settings', 'Settings', $i18ntag='setting'));
 
 			$a = \Osmium\State\get_state('a');
 			if(isset($a['ismoderator']) && $a['ismoderator'] === 't') {
@@ -893,7 +893,7 @@ class Page extends RawPage {
 					'/moderation',
 					\Osmium\Flag\MODERATOR_SYMBOL.'Moderation',
 					\Osmium\Flag\MODERATOR_SYMBOL
-				));
+				),$i18ntag="moderation");
 			}
 		}
 	}
@@ -901,7 +901,7 @@ class Page extends RawPage {
 
 
 	/* @internal */
-	private function makeNavigationLink($dest, $label, $shortlabel = null, $title = null) {
+	private function makeNavigationLink($dest, $label, $shortlabel = null, $title = null, $i18ntag = null) {
 		static $current = null;
 		if($current === null) {
 			$current = explode('?', $_SERVER['REQUEST_URI'], 2)[0];
@@ -911,6 +911,10 @@ class Page extends RawPage {
 
 		$full = $this->element('span', [ 'class' => 'full',  $label ]);
 		$mini = $this->element('span', [ 'class' => 'mini', $shortlabel ]);
+		if ($i18ntag !== null){
+			$full->attr('data-i18n', $i18ntag.".full");
+			$mini->attr('data-i18n', $i18ntag.".mini");
+		}
 
 		if($title !== null) {
 			$full->attr('title', $title);
@@ -991,10 +995,10 @@ class Page extends RawPage {
 			$p = $div->appendCreate('p');
 			$p->appendCreate('a', [ 'o-rel-href' => '/login'.$this->formatQueryString([
 				'r' => $_SERVER['REQUEST_URI'],
-			]), 'Sign in' ]);
+			] ),'data-i18n' => 'signin', 'Sign in' ]);
 
 			if(\Osmium\get_ini_setting('registration_enabled')) {
-				$reglink = [ 'a', [ 'o-rel-href' => '/register', [ 'strong', 'Sign up' ] ] ];
+				$reglink = [ 'a', [ 'o-rel-href' => '/register', 'data-i18n' => 'signup',[ 'strong', 'Sign up' ] ] ];
 				$p->append([ ' or ', $reglink ]);
 			}
 		}

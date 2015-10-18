@@ -1,0 +1,36 @@
+{
+  "home": {
+    "mini": "首页",
+    "full": "首页"
+  },
+  "create": {
+    "mini": "新建",
+    "full": "新建装配"
+  },
+  "import": {
+    "mini": "导入",
+    "full": "导入装配"
+  },
+  "convert": {
+    "mini": "转换",
+    "full": "转换装配"
+  },
+  "browse": {
+    "mini": "浏览",
+    "full": "装配浏览器"
+  },
+  "setting": {
+    "mini": "设置",
+    "full": "设置"
+  },
+  "Moderation": {
+    "mini": "管理",
+    "full": "管理"
+  },
+  "type": {
+    "mini": "装备",
+    "full": "装备浏览器"
+  },
+  "signup":"注册",
+  "signin":"登录",
+}
