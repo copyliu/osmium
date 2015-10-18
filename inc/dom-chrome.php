@@ -999,7 +999,7 @@ class Page extends RawPage {
 
 			if(\Osmium\get_ini_setting('registration_enabled')) {
 				$reglink = [ 'a', [ 'o-rel-href' => '/register', 'data-i18n' => 'signup',[ 'strong', 'Sign up' ] ] ];
-				$p->append([ ' or ', $reglink ,'data-i18n' => 'or' ]);
+				$p->append([ ' or ', $reglink ]);
 			}
 		}
 
