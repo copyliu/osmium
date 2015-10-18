@@ -872,7 +872,7 @@ class Page extends RawPage {
 		$osmium = \Osmium\get_ini_setting('name');
 		$ul = $nav->appendCreate('ul');
 		$ul->append([
-			$this->makeNavigationLink('/', $osmium, $osmium, 'Go to the home page', 'home'),
+			$this->makeNavigationLink('/', $osmium, $osmium, 'Go to the home page'),
 			$this->makeNavigationLink('/new#browse', 'Create loadout', 'Create', 'Create a new fitting', 'create'),
 			$this->makeNavigationLink('/import', 'Import', 'Import',
 			                          'Import one or more fittings from various formats' ,'import'),
