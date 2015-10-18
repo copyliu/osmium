@@ -336,9 +336,9 @@ $ul = $nlm->appendCreate('ul.tabs');
 $ul->appendCreate('li')->appendCreate('a', [ 'href' => '#modules', 'Modules & Charges' ,"data-i18n"=>"modules"]);
 $ul->appendCreate('li')->appendCreate('a', [ 'href' => '#drones', 'Drones' ,"data-i18n"=>"drones"]);
 $ul->appendCreate('li')->appendCreate('a', [ 'href' => '#implants', 'Implants & Boosters' ,"data-i18n"=>"implants"]);
-$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#remote', 'Fleet & Projected' ,"data-i18n"=>"remote"]);
+$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#remote', 'Fleet & Projected' ,"data-i18n"=>"remote_e"]);
 $ul->appendCreate('li')->appendCreate('a', [ 'href' => '#area', 'Area' ,"data-i18n"=>"area"]);
-$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#presets', 'Presets' ,"data-i18n"=>"presets"]);
+$ul->appendCreate('li')->appendCreate('a', [ 'href' => '#presets', 'Presets' ,"data-i18n"=>"presets_e"]);
 $ul->appendCreate('li')->appendCreate('a', [ 'href' => '#metadata', 'Metadata' ,"data-i18n"=>"metadata"]);
 
 $section = $nlm->appendCreate('section#modules');
