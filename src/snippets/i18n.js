@@ -18,7 +18,7 @@
 /*<<< require external //cdnjs.cloudflare.com/ajax/libs/i18next/1.10.2/i18next.min.js before >>>*/
 
 $(function() {
-    var i18noption = { resGetPath: '/static/locales/__lng__/__ns__.json',lowerCaseLng: true,lng:'zh-CN',
+    var i18noption = { resGetPath: '/static/locales/__lng__/__ns__.json?'+new Date().getTime(),lowerCaseLng: true,lng:'zh-CN',
         ns: {
             namespaces: ['nav', 'loadout'],
             defaultNs: 'nav'
