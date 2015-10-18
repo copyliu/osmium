@@ -19,5 +19,7 @@
 
 $(function() {
     var i18noption = { resGetPath: 'locales/__lng__/__ns__.json',lowerCaseLng: true,lng:'zh-CN' };
-    i18n.init(i18noption);
+    i18n.init(i18noption,function(){
+        $(body).i18n();
+    });
 });
