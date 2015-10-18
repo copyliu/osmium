@@ -110,6 +110,13 @@ $js = [
 		'http://www.apache.org/licenses/LICENSE-2.0',
 		'https://raw.githubusercontent.com/ccampbell/mousetrap/1.4.6/mousetrap.js',
 	],
+	[
+		'i18n.min.js',
+		'https://cdnjs.cloudflare.com/ajax/libs/i18next/1.10.2/i18next.min.js',
+		'MIT',
+		'https://raw.githubusercontent.com/i18next/i18next/master/license',
+		'https://cdnjs.cloudflare.com/ajax/libs/i18next/1.10.2/i18next.js',
+	],
 ];
 
 chdir(__DIR__.'/../static/cache');

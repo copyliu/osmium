@@ -6,4 +6,4 @@
 /*<<< require snippet persistent_theme >>>*/
 /*<<< require snippet notifications >>>*/
 /*<<< require snippet feedback >>>*/
-
+/*<<< require snippet i18n >>>*/
