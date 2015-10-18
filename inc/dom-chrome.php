@@ -977,14 +977,14 @@ class Page extends RawPage {
 					(string)$ncount
 				]],
 				' ',
-				[ 'o-state-altering-a', [ 'o-rel-href' => '/internal/logout', 'Sign out' ] ],
+				[ 'o-state-altering-a', [ 'o-rel-href' => '/internal/logout', 'data-i18n'=>'signout', 'Sign out' ] ],
 				' ',
 				[ 'small', [
 					'(',
 					[ 'o-state-altering-a', [
 						'o-rel-href' => '/internal/logout'.self::formatQueryString([ 'global' => '1' ]),
 						'title' => 'Terminate all my sessions, even on other computers or browsers',
-						'all',
+						'all', 'data-i18n'=>'signoutall'
 					]],
 					')',
 				]],
@@ -999,7 +999,7 @@ class Page extends RawPage {
 
 			if(\Osmium\get_ini_setting('registration_enabled')) {
 				$reglink = [ 'a', [ 'o-rel-href' => '/register', 'data-i18n' => 'signup',[ 'strong', 'Sign up' ] ] ];
-				$p->append([ ' or ', $reglink ]);
+				$p->append([ ' or ', $reglink ,'data-i18n' => 'or' ]);
 			}
 		}
 

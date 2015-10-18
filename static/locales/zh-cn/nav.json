@@ -32,5 +32,8 @@
     "full": "装备浏览器"
   },
   "signup":"注册",
-  "signin":"登录"
+  "signin":"登录",
+  "signout":"注销",
+  "signoutall":"全部",
+  "or":"或"
 }
