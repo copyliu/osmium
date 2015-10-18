@@ -24,6 +24,6 @@ $(function() {
             defaultNs: 'nav'
         } };
     i18n.init(i18noption,function(){
-        $(body).i18n();
+        $("body").i18n();
     });
 });
