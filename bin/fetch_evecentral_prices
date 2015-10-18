@@ -21,18 +21,23 @@ namespace Osmium\CLI\FetchEveCentralPrices;
 
 require __DIR__.'/../inc/root.php';
 
-if($argc === 3) {
-	list(, $modtotal, $modcurrent) = $argv;
+if($argc === 4) {
+	list(, $modtotal, $modcurrent, $ndays) = $argv;
 } else {
 	$modcurrent = 0;
 	$modtotal = 1;
+	$ndays = 7;/* Only update 1/7th of all types every day */
 }
 
-if($modcurrent >= $modtotal) die();
-
 const BS = 5; /* Number of types per API call */
-const MIN_VOLUME = 100; /* Do not use median price if volume is < this threshold */
-const NDAYS = 7; /* Only update 1/7th of all types every day */
+$MIN_VOLUME = 100; /* Do not use median price if volume is < this threshold */
+
+if (\Osmium\get_ini_setting("serenity_patch")){
+	$MIN_VOLUME = 10;
+}
+
+
+if($modcurrent >= $modtotal*$ndays) die();
 
 $typesq = \Osmium\Db\query_params(
 	'SELECT it.typeid
@@ -40,7 +45,7 @@ $typesq = \Osmium\Db\query_params(
     JOIN eve.invgroups ig ON ig.groupid = it.groupid
     WHERE it.published = true AND ig.categoryid IN (6,7,8,18,20,32)
     AND mod(typeid, $1) = $2',
-	[ $modtotal * NDAYS, $modcurrent + $modtotal * ((int)date('z') % NDAYS) ]
+	[ $modtotal * $ndays, $modcurrent + $modtotal * ((int)date('z') % $ndays) ]
 );
 
 while(true) {
@@ -82,7 +87,7 @@ while(true) {
 			[ (int)$type['id'] ]
 		);
 		
-		if((int)$type->sell->volume < MIN_VOLUME) continue;
+		if((int)$type->sell->volume < $MIN_VOLUME) continue;
 		
 		\Osmium\Db\query_params(
 			'INSERT INTO eve.averagemarketprices (typeid, averageprice) VALUES ($1, $2)',
