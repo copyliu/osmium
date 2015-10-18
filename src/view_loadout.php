@@ -177,7 +177,7 @@ $p->canonical = $canonicaluri;
 $dna = \Osmium\Fit\export_to_dna($fit);
 
 $h1 = $p->content->appendCreate('h1#vltitle');
-$h1->appendCreate("span",['Viewing loadout: ', "data-i18n" => "[prepend]viewing" ]);
+$h1->appendCreate("span",['Viewing loadout: ', "data-i18n" => "viewing" ]);
 $h1->appendCreate('strong.fitname')->appendCreate(
 	'a', [ 'data-ccpdna' => $dna, $fit['metadata']['name'] ]
 );
