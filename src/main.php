@@ -63,7 +63,7 @@ $maincont = $p->content->appendCreate('div', [ 'class' => 'mainpcont' ]);
 $maincont->append($p->fragment(get_cache_memory_or_gen('metrics', 30, function() use($p) {
 	$section = $p->element('section', [
 		'class' => 'metrics',
-		[ 'h2', 'Quick stats', 'data-i18n'=>'main:quickstats' ],
+		[ 'h2', ['Quick stats', 'data-i18n'=>'main:quickstats'] ],
 	]);
 
 	$nctx = \Osmium\State\count_cache_entries([ 'mmin' => 10 ], 'Loadout_New_')
@@ -166,7 +166,7 @@ $maincont->append($p->fragment(get_cache_memory_or_gen(
 $maincont->append($p->fragment(get_cache_memory_or_gen(
 	'popular_fits_'.$a['accountid'], 602, function() use($p) {
 		$section = $p->element('section', [ 'class' => 'popularfits' ]);
-		$section->appendCreate('h2', ['Popular fits', "data-i18n" => "popular" ]);
+		$section->appendCreate('h2', ['Popular fits', "data-i18n" => "main:popular" ]);
 
 		$vercutoff = \Osmium\Fit\get_build_cutoff();
 		$ids = \Osmium\Search\get_search_ids(
