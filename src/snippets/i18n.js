@@ -20,7 +20,7 @@
 $(function() {
     var i18noption = { resGetPath: '/static/locales/__lng__/__ns__.json?'+new Date().getTime(),lowerCaseLng: true,lng:'zh-CN',
         ns: {
-            namespaces: ['nav', 'loadout'],
+            namespaces: ['nav', 'loadout', 'main'],
             defaultNs: 'nav'
         } };
     i18n.init(i18noption,function(){
