@@ -63,7 +63,7 @@ $maincont = $p->content->appendCreate('div', [ 'class' => 'mainpcont' ]);
 $maincont->append($p->fragment(get_cache_memory_or_gen('metrics', 30, function() use($p) {
 	$section = $p->element('section', [
 		'class' => 'metrics',
-		[ 'h2', 'Quick stats' ],
+		[ 'h2', 'Quick stats', 'data-i18n'=>'main:quickstats' ],
 	]);
 
 	$nctx = \Osmium\State\count_cache_entries([ 'mmin' => 10 ], 'Loadout_New_')
@@ -101,7 +101,7 @@ $maincont->append($p->fragment(get_cache_memory_or_gen('metrics', 30, function()
 
 $maincont->append($p->fragment(get_cache_memory_or_gen('popular_tags', 3603, function() use($p) {
 	$section = $p->element('section', [ 'class' => 'populartags' ]);
-	$section->appendCreate('h2', 'Common tags');
+	$section->appendCreate('h2', ['Common tags', "data-i18n" => "main:tags" ]);
 	$ul = $section->appendCreate('ul', [ 'class' => 'tags', 'id' => 'populartags' ]);
 
 	$query = \Osmium\Db\query(
@@ -130,7 +130,7 @@ $maincont->append($p->fragment(get_cache_memory_or_gen(
 	'new_fits_'.$a['accountid'], 601, function() use($p) {
 		$section = $p->element('section', [ 'class' => 'newfits' ]);
 		$section->appendCreate('h2', [
-			'New fits ',
+			'New fits ', "data-i18n" => "main:new" ,
 			[ 'small', [
 				[ 'a', [
 					'o-rel-href' => '/atom/newfits.xml',
@@ -155,7 +155,7 @@ $maincont->append($p->fragment(get_cache_memory_or_gen(
 
 		$section->appendCreate('p', [
 			'class' => 'b_more',
-			[ 'a', [ 'o-rel-href' => '/browse/new', 'Browse more new loadouts…' ] ],
+			[ 'a', [ 'o-rel-href' => '/browse/new', 'Browse more new loadouts…', "data-i18n" => "main:browse"  ] ],
 		]);
 
 		return $section->renderNode();
@@ -166,7 +166,7 @@ $maincont->append($p->fragment(get_cache_memory_or_gen(
 $maincont->append($p->fragment(get_cache_memory_or_gen(
 	'popular_fits_'.$a['accountid'], 602, function() use($p) {
 		$section = $p->element('section', [ 'class' => 'popularfits' ]);
-		$section->appendCreate('h2', 'Popular fits');
+		$section->appendCreate('h2', ['Popular fits', "data-i18n" => "popular" ]);
 
 		$vercutoff = \Osmium\Fit\get_build_cutoff();
 		$ids = \Osmium\Search\get_search_ids(
@@ -184,7 +184,7 @@ $maincont->append($p->fragment(get_cache_memory_or_gen(
 
 		$section->appendCreate('p', [
 			'class' => 'b_more',
-			[ 'a', [ 'o-rel-href' => '/browse/best', 'Browse more popular loadouts…' ] ],
+			[ 'a', [ 'o-rel-href' => '/browse/best', 'Browse more popular loadouts…', "data-i18n" => "main:browse"  ] ],
 		]);
 
 		return $section->renderNode();
@@ -196,14 +196,14 @@ $maincont->append($p->fragment(get_cache_memory_or_gen('fotw', 603, function() u
 	$section = $p->element('section', [ 'class' => 'fotw' ]);
 	if (\Osmium\get_ini_setting("serenity_patch")){
 		$section->appendCreate('h2', [
-			'Flavors of the week ',
-			[ 'small', [ 'data from ', [ 'a', [ 'href' => 'http://kb.ceve-market.org/', '市场机击杀榜 - 伊甸荒塚' ] ] ] ],
+			'Flavors of the week ', "data-i18n" => "main:kbflav" ,
+			[ 'small', [ 'data from ', "data-i18n" => "main:datafrom" , [ 'a', [ 'href' => 'http://kb.ceve-market.org/', '市场机击杀榜 - 伊甸荒塚' ] ] ] ],
 		]);
 	}
 	else{
 		$section->appendCreate('h2', [
 			'Flavors of the week ',
-			['small', ['data from ', ['a', ['href' => 'https://eve-kill.com/', 'Eve-Kill']]]],
+			['small', ['data from ', "data-i18n" => "main:datafrom" , ['a', ['href' => 'https://eve-kill.com/', 'Eve-Kill']]]],
 		]);
 	}
 	$topkills = \Osmium\State\get_cache('top_kills', null);
@@ -252,14 +252,14 @@ $maincont->append($p->fragment(get_cache_memory_or_gen('doctrines', 604, functio
 	$section = $p->element('section', [ 'class' => 'doctrines' ]);
 	if (\Osmium\get_ini_setting("serenity_patch")){
 		$section->appendCreate('h2', [
-			'Popular alliance doctrines ',
-			[ 'small', [ 'data from ', [ 'a', [ 'href' => 'http://kb.ceve-market.org/', '市场机击杀榜 - 伊甸荒塚' ] ] ] ],
+			'Popular alliance doctrines ', "data-i18n" => "main:kballiance" ,
+			[ 'small', [ 'data from ', "data-i18n" => "main:datafrom" , [ 'a', [ 'href' => 'http://kb.ceve-market.org/', '市场机击杀榜 - 伊甸荒塚' ] ] ] ],
 		]);
 	}
 	else{
 		$section->appendCreate('h2', [
-			'Popular alliance doctrines ',
-			['small', ['data from ', ['a', ['href' => 'https://eve-kill.com/', 'Eve-Kill']]]],
+			'Popular alliance doctrines ', "data-i18n" => "main:kballiance" ,
+			['small', ['data from ', "data-i18n" => "main:datafrom" , ['a', ['href' => 'https://eve-kill.com/', 'Eve-Kill']]]],
 		]);
 	}
 

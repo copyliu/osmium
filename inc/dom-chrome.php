@@ -535,7 +535,7 @@ class Page extends RawPage {
 
 		if($mode === self::MSB_SEARCH_TYPES) {
 			$label->append('Search types');
-
+			$label->attr('data-i18n','main:search_types');
 			$p->appendCreate('input', [
 				'type' => 'hidden',
 				'name' => 'm',
@@ -548,7 +548,7 @@ class Page extends RawPage {
 		if(isset($_GET['ad']) && $_GET['ad'] === '1') {
 			/* Advanced search mode */
 			$label->append('Advanced search');
-
+			$label->attr('data-i18n','main:search_adv');
 			$sbuild = $this->element('o-select', [ 'name' => 'build' ]);
 			foreach(\Osmium\Fit\get_eve_db_versions() as $v) {
 				$sbuild->appendCreate('option', [ 'value' => $v['build'], $v['name'] ]);
@@ -614,7 +614,7 @@ class Page extends RawPage {
 		} else {
 			/* Simple search mode, show a link to advanced mode and nothing else */
 			$label->append(($mode === self::MSB_SEARCH ? 'Search' : 'Filter').' loadouts');
-
+			$label->attr('data-i18n','main:'.($mode === self::MSB_SEARCH ? 'search' : 'filter').'_loadouts');
 			/* XXX: get_search_cond_from_advanced() will set some
 			 * default values in $_GET. Ugly side effect, get rid of
 			 * this ASAP. */
