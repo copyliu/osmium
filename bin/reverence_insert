@@ -24,6 +24,8 @@ import os
 import sys
 import psycopg2
 import argparse
+import sqlite3
+
 
 parser = argparse.ArgumentParser(description="Populate the eve schema from an EVE installation.")
 parser.add_argument("eve", metavar="eve-exe-path")
@@ -103,6 +105,16 @@ def flattenRowsetLines(rowset):
         for row in sub.lines:
             yield row
 
+
+def dictoobj(rowset):
+    for sub in rowset:
+        yield objectview(dict(sub))
+
+
+
+class objectview(object):
+    def __init__(self, d):
+        self.__dict__ = d
 
 
 if not args.force:
@@ -192,13 +204,17 @@ processRows("eve.invgroups", {
 }, cfg.invgroups);
 
 
-
 mg = eve.RemoteSvc("marketProxy").GetMarketGroups()
+localdb=sqlite3.connect(os.path.join(args.eve, "bulkdata", "mapbulk.db"))
+localdb.row_factory = sqlite3.Row
+sqll = 'SELECT * FROM marketGroups  '
+rs = localdb.execute(sqll)
 processRows("eve.invmarketgroups", {
     "marketgroupid": "marketGroupID",
     "parentgroupid": "parentGroupID",
-    "marketgroupname": (lambda row: row.marketGroupName if row.marketGroupName != '' else cfg._localization.GetByMessageID(row.marketGroupNameID)),
-}, flattenRows(mg));
+    "marketgroupname": (lambda row:  cfg._localization.GetByMessageID(row.marketGroupNameID) or ''),
+}, dictoobj(rs));
+
 
 
 
