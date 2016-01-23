@@ -16,6 +16,7 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+import traceback
 
 from reverence import blue
 import ConfigParser
@@ -23,6 +24,8 @@ import os
 import sys
 import psycopg2
 import argparse
+import sqlite3
+
 
 parser = argparse.ArgumentParser(description="Populate the eve schema from an EVE installation.")
 parser.add_argument("eve", metavar="eve-exe-path")
@@ -77,7 +80,7 @@ def processRows(tablename, columnmap, rowset):
             cur.execute(querystring, [ (k(row) if callable(k) else getattr(row,k) if hasattr(row,k) else row[k])
                                        for k in columnmap.viewvalues() ])
         except(KeyError):
-            pass
+            traceback.print_exc()
             
         i += 1
         if i % 25000 == 0:
@@ -102,6 +105,16 @@ def flattenRowsetLines(rowset):
         for row in sub.lines:
             yield row
 
+
+def dictoobj(rowset):
+    for sub in rowset:
+        yield objectview(dict(sub))
+
+
+
+class objectview(object):
+    def __init__(self, d):
+        self.__dict__ = d
 
 
 if not args.force:
@@ -191,13 +204,17 @@ processRows("eve.invgroups", {
 }, cfg.invgroups);
 
 
-
 mg = eve.RemoteSvc("marketProxy").GetMarketGroups()
+localdb=sqlite3.connect(os.path.join(args.eve, "bulkdata", "mapbulk.db"))
+localdb.row_factory = sqlite3.Row
+sqll = 'SELECT * FROM marketGroups  '
+rs = localdb.execute(sqll)
 processRows("eve.invmarketgroups", {
     "marketgroupid": "marketGroupID",
     "parentgroupid": "parentGroupID",
-    "marketgroupname": (lambda row: row.marketGroupName if row.marketGroupName != '' else cfg._localization.GetByMessageID(row.marketGroupNameID)),
-}, flattenRows(mg));
+    "marketgroupname": (lambda row:  cfg._localization.GetByMessageID(row.marketGroupNameID) or ''),
+}, dictoobj(rs));
+
 
 
 
@@ -211,13 +228,13 @@ processRows("eve.invmetagroups", {
 processRows("eve.invtypes", {
     "typeid": "typeID",
     "groupid": "groupID",
-    "typename": (lambda row: cfg._localization.primary[row.typeNameID][0]),
+    "typename": (lambda row: cfg._localization.primary[row.typeNameID][0] if hasattr(row, "typeNameID") and cfg._localization.primary.has_key(row.typeNameID) else ""),
     "mass": "mass",
     "volume": "volume",
     "capacity": (lambda row: row.capacity if hasattr(row, "capacity") else 0),
     "published": "published",
     "marketgroupid": (lambda row: row.marketGroupID if hasattr(row, "marketGroupID") and row.marketGroupID < 350000 else None),
-    "description": (lambda row: cfg._localization.primary[row.descriptionID][0] if hasattr(row, "descriptionID") else ""),
+    "description": (lambda row: cfg._localization.primary[row.descriptionID][0] if hasattr(row, "descriptionID") and cfg._localization.primary.has_key(row.descriptionID) else ""),
 }, cfg.invtypes);
 
 
